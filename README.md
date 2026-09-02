@@ -1,6 +1,6 @@
 # Cloud Security Monitor — Floci
 
-A small but functional cloud security monitor that uses **Floci** as a local AWS-compatible environment. Collects cloud activity, detects 5 security threats with rule-based detection, scores risk, maps to MITRE ATT&CK, and displays everything in a clean dashboard.
+A small but functional cloud security monitor that uses **Floci** as a local AWS-compatible environment. Collects cloud activity, detects 5 security threats with rule-based detection, scores risk, maps to MITRE ATT&CK, and displays everything in a Lamborghini-inspired dashboard.
 
 Built for a college project demo — backend, cloud integration, event processing, security analysis, database, and frontend in one runnable prototype.
 
@@ -22,7 +22,7 @@ Floci → Cloud Activity → Event Collector → Detection Engine → Risk Scori
   | 5 | Excessive API Activity (>20 ops / 60s per user, configurable) | HIGH | 80 | T1078 Valid Accounts |
 - **Risk scoring** 0–100 (`LOW 0-39`, `MEDIUM 40-69`, `HIGH 70-89`, `CRITICAL 90-100`), overall score = `100 - total_open_risk/5`
 - **MITRE mapping + recommendations** per alert, no auto-remediation
-- **Dashboard** — security score, counts by severity, recent activity (filter service/user/action), alerts (filter severity/status/date, detail drawer), status transitions `OPEN → REVIEWED → RESOLVED`, and event timeline (last 50)
+- **Dashboard** — Lamborghini Black (`#000000`) + Gold (`#FFC000`), security score, counts by severity, recent activity (filter service/user/action), alerts (filter severity/status, detail drawer), status transitions `OPEN → REVIEWED → RESOLVED`, and event timeline (last 50)
 
 ## Architecture
 
@@ -36,14 +36,16 @@ Floci AWS (S3, IAM)  ──boto3──▶  Flask (backend/app.py)
                                     └─ database.py — SQLite (events, alerts)
                                           │
                                           ▼
-                                   frontend/index.html + app.js
+                                   React Vite (frontend/src/App.jsx)
+                                   Lamborghini theme — index.css (#000000 / #FFC000)
+                                   proxy /api → :5000 (vite.config.js)
 ```
 
 ## Project Structure
 
 ```
 backend/
-  app.py              Flask API + static serving
+  app.py              Flask API + static serving (dist/ if built else frontend/)
   config.py           endpoint, region, thresholds, DB path
   database.py         SQLite init / insert / query
   floci_client.py     boto3 S3/IAM helpers
@@ -52,8 +54,15 @@ backend/
   risk_engine.py      scoring
   mitre.py            ATT&CK mapping
   models.py           re-exports
-frontend/
-  index.html / style.css / app.js
+frontend/             Vite + React 19
+  vite.config.js      proxy /api → http://localhost:5000
+  index.html
+  src/
+    App.jsx           Lamborghini dashboard
+    main.jsx
+    index.css         Black+Gold design system
+  public/
+  dist/               built output (gitignored, served by Flask in prod)
 scripts/
   setup_floci.py      creates buckets/users/policies/keys
   demo.py             demo scenario via API or direct
@@ -62,37 +71,58 @@ scripts/
 ## Prerequisites
 
 - Python 3.10+, [uv](https://docs.astral.sh/uv/), Docker (for Floci), `floci` CLI
+- Node 18+ + [bun](https://bun.sh/) (for frontend, `npm` also works)
 
 ```bash
 floci --version   # 0.2.1+
 python3 --version
 uv --version
+bun --version
 ```
 
 ## Quick Start
+
+### Backend only (API at :5000, serves built frontend if present)
 
 ```bash
 # 1. Start local AWS
 floci start
 floci status          # Reachable: yes, Endpoint: http://localhost:4566
-floci env             # exports AWS_ENDPOINT_URL, test/test
 
-# 2. Install
+# 2. Install backend
 uv venv .venv
 uv pip install -r requirements.txt
 
 # 3. Create Floci test env (3 buckets incl. 1 public, 3 users)
 uv run python scripts/setup_floci.py
 
-# 4. Run
+# 4. Run backend
 uv run python -m backend.app   # http://localhost:5000
-# or
-./run.sh
+# or ./run.sh
+```
+
+### Frontend
+
+**Prod** — Flask serves `frontend/dist`:
+```bash
+cd frontend
+bun install
+bun run build        # → dist/
+cd .. && uv run python -m backend.app  # open http://localhost:5000
+```
+
+**Dev** — Vite HMR with proxy:
+```bash
+# terminal 1 — backend
+uv run python -m backend.app  # :5000
+# terminal 2 — frontend
+cd frontend && bun install && bun run dev  # :5173 → proxies /api → :5000
+# open http://localhost:5173
 ```
 
 ## Demo Scenario
 
-Dashboard → **Run Demo Scenario** or:
+Dashboard → **Run Demo Scenario** (gold button) or:
 
 ```bash
 curl -X POST http://localhost:5000/api/simulate -H 'Content-Type: application/json' -d '{"user":"alice"}'
@@ -109,7 +139,7 @@ Sequence:
 5. `DeleteObject` → **Rule 4 MEDIUM — S3 Object Deleted (50)**
 6. Burst 25× `GetObject` → **Rule 5 HIGH — Excessive API Activity (80)**
 
-Check `Floci event → /api/collect → detector → alert → dashboard` in the API or UI.
+Check `Floci event → /api/collect → detector → alert → dashboard` in the API or UI. Click an alert for MITRE + recommendation + status change. Polls every 8s, `Refresh` forces reload.
 
 ## API
 
@@ -167,6 +197,8 @@ CSM_EXCESSIVE_WINDOW=60
 PORT=5000
 ```
 
+Frontend dev proxy: `frontend/vite.config.js` → `server.proxy['/api'] = 'http://localhost:5000'`
+
 ## Manual Testing
 
 ```bash
@@ -178,9 +210,11 @@ curl -X POST http://localhost:5000/api/collect \
 curl http://localhost:5000/api/alerts | jq
 ```
 
+If demo shows nothing: ensure backend is running (`curl http://localhost:5000/api/overview`), `floci status` reachable, hard refresh `Ctrl+Shift+R`, check `F12 → Network → /api/simulate` for 500, `rm csm.db` for clean slate.
+
 ## Tech Stack
 
-Floci (LocalStack-compatible) · Python Flask + Flask-Cors · boto3 · SQLite · HTML/CSS/JS. No ML, no auto-remediation, minimal dependencies.
+Floci (LocalStack-compatible) · Python Flask + Flask-Cors · boto3 · SQLite · React 19 + Vite + bun · Lamborghini Design System (#000000 + #FFC000). No ML, no auto-remediation, minimal dependencies. OS-agnostic (Linux/macOS/Windows WSL + Docker).
 
 ## License
 
