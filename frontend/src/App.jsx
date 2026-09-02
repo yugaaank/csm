@@ -81,7 +81,7 @@ export default function App(){
       <nav className="nav">
         <div className="nav-left">
           <div className="logo"><span className="logo-mark">◈</span> CSM</div>
-          <div className="nav-links"><a href="#">Overview</a><a href="#">Events</a><a href="#">Alerts</a><a href="#">Timeline</a></div>
+          <span style={{fontSize:11,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-faint)',marginLeft:12}}>Floci • Cloud Security Monitor</span>
         </div>
         <div className="nav-right">
           <button className="theme-toggle" aria-label="Toggle theme" onClick={()=>setTheme(t=>t==='light'?'dark':'light')} title={theme==='light'?'Dark mode':'Light mode'}>
@@ -91,8 +91,6 @@ export default function App(){
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
             )}
           </button>
-          <a href="#" style={{fontSize:14,color:'var(--ink-muted)',fontWeight:500}}>Sign in</a>
-          <button className="btn btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Try free'}</button>
         </div>
       </nav>
 
@@ -241,19 +239,10 @@ export default function App(){
         </div>
       </section>
 
-      <section className="section" style={{paddingTop:0}}>
-        <div style={{maxWidth:1280,margin:'0 auto',background:'var(--ink)',borderRadius:12,padding:24,display:'flex',justifyContent:'space-between',gap:20,alignItems:'center',flexWrap:'wrap'}}>
-          <div><div style={{color:'var(--canvas)',fontSize:18,fontWeight:600}}>Ready to test the pipeline?</div><div style={{color:'var(--ink-faint)',fontSize:13,marginTop:4}}>One click creates a public bucket, an admin policy, a new key and a deletion.</div></div>
-          <button className="btn btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo again'}</button>
-        </div>
-      </section>
-
       <footer className="footer">
-        <div className="footer-grid">
-          <div><h4>CSM</h4><div style={{color:'var(--ink-muted)',fontSize:13,lineHeight:1.5}}>Floci local AWS - Flask - SQLite - MITRE ATT&CK. College project - detection only.</div></div>
-          <div><h4>Product</h4><a href="#">Overview</a><a href="#">Events</a><a href="#">Alerts</a><a href="#">Timeline</a></div>
-          <div><h4>Resources</h4><a href="#">DESIGN.md</a><a href="#">API Docs</a><a href="#">Floci Setup</a></div>
-          <div><h4>Notion-inspired</h4><div style={{color:'var(--ink-muted)',fontSize:13}}>Paper canvas #F6F5F4 - Inter tight - blue pill #0075DE - Dark mode toggle</div></div>
+        <div style={{maxWidth:1280,margin:'0 auto',display:'flex',justifyContent:'space-between',gap:16,flexWrap:'wrap',fontSize:12,color:'var(--ink-muted)'}}>
+          <span>CSM • Floci • Flask • SQLite • MITRE ATT&CK</span>
+          <span>College project — detection only, no auto-remediation</span>
         </div>
       </footer>
 
