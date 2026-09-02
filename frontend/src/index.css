@@ -1,4 +1,4 @@
-/* Notion Design — CSM — with Dark Mode + Dark Blue Blur Hero (Awwwards A) */
+/* Notion Design — CSM — with Dark Mode + Light Mechanical Hero */
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@500;700&family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
 
 :root{
@@ -68,30 +68,25 @@ button{font-family:inherit}
 .theme-toggle{width:38px;height:38px;border-radius:9999px;border:1px solid var(--hairline);background:var(--surface);display:grid;place-items:center;cursor:pointer;color:var(--ink-muted);transition:background 0.2s, border-color 0.2s, color 0.2s}
 .theme-toggle:hover{background:var(--canvas-soft);color:var(--ink)}
 
-/* Hero — Small SVG Texture — No Blur — New Direction */
+/* Hero — Light Mechanical — SVG Texture, No Blue */
 .hero-blur{
   position:relative;
   min-height:560px;
   overflow:hidden;
-  background:#070D2E;
-  color:#f5f5f5;
+  background:var(--canvas);
+  color:var(--ink);
   display:flex;
   align-items:center;
   justify-content:center;
   padding:56px 24px 52px;
   isolation:isolate;
-}
-.hero-blur::before{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 55% 45% at 50% 12%, rgba(255,255,255,0.05) 0%, transparent 62%);
-  pointer-events:none;z-index:1;
+  border-bottom:1px solid var(--hairline);
 }
 .hero-blur-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-texture{position:absolute;inset:0;width:100%;height:100%;opacity:0.16;z-index:0}
+.hero-texture{position:absolute;inset:0;width:100%;height:100%;opacity:1;z-index:0;pointer-events:none}
 .hero-texture svg{width:100%;height:100%;display:block}
 .hero-blur-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:640px;width:100%;padding:16px 0}
-.hero-kicker{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600}
+.hero-kicker{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
 .hero-title{
   margin:12px 0 0;
   font-family:'Geist','Inter',sans-serif;
@@ -101,41 +96,22 @@ button{font-family:inherit}
   line-height:0.96;
   text-wrap:balance;
   max-width:16ch;
-  color:#fff;
+  color:var(--ink);
 }
 .hero-sub{
   margin:14px 0 0;
   font-size:15px;
   line-height:1.55;
-  color:rgba(255,255,255,0.68);
+  color:var(--ink-muted);
   max-width:42ch;
 }
 .hero-actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
 .hero-cta{border-radius:9999px;padding:12px 24px;font-size:0.84rem;letter-spacing:0.05em;text-transform:uppercase;font-weight:600;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);min-height:42px}
-.hero-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,0.22)}
+.hero-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,0.12)}
 .hero-cta:active{transform:translateY(0) scale(0.98)}
-.hero-meta{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
-.score-pill{margin-top:16px;display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:9999px;padding:7px 13px;font-size:12px;color:#fff;backdrop-filter:blur(6px)}
-.score-pill b{color:#fff}
-
-/* Legacy hero-band kept for fallback */
-.hero-band{background:var(--secondary);color:var(--on-primary);position:relative;overflow:hidden;padding:56px 32px 48px}
-.hero-band::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 70% 20%, rgba(98,174,240,0.18), transparent 60%), radial-gradient(500px 400px at 20% 80%, rgba(255,100,200,0.10), transparent 60%);pointer-events:none}
-.stickers{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stickers i{position:absolute;border-radius:8px;opacity:0.9}
-.stickers i:nth-child(1){width:28px;height:28px;background:var(--sky);left:72%;top:18%;transform:rotate(12deg)}
-.stickers i:nth-child(2){width:22px;height:22px;background:var(--purple);left:88%;top:34%;transform:rotate(-8deg)}
-.stickers i:nth-child(3){width:18px;height:18px;background:var(--pink);left:76%;top:68%;transform:rotate(18deg)}
-.stickers i:nth-child(4){width:24px;height:24px;background:var(--orange);left:62%;top:62%;transform:rotate(-12deg)}
-.stickers i:nth-child(5){width:16px;height:16px;background:var(--teal);left:84%;top:72%;transform:rotate(8deg)}
-.hero-grid{position:relative;z-index:2;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}}
-.hero-kicker-notion{font-size:12px;font-weight:600;letter-spacing:0.125px;text-transform:uppercase;color:var(--sky)}
-.hero-title-notion{margin:10px 0 0;font-size:64px;font-weight:700;line-height:1.0;letter-spacing:-2.125px;color:var(--on-primary);text-wrap:balance;max-width:14ch}
-.code-card{background:var(--canvas);border-radius:12px;padding:20px;border:1px solid var(--hairline);box-shadow:0 8px 24px rgba(0,0,0,0.12)}
-.code-card pre{margin:0;font-family:'Source Code Pro',monospace;font-size:12px;line-height:1.6;color:var(--ink-secondary)}
-.code-dots{display:flex;gap:6px;margin-bottom:12px}
-.code-dots i{width:10px;height:10px;border-radius:50%;background:var(--hairline);display:block}
+.hero-meta{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint)}
+.score-pill{margin-top:16px;display:inline-flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--hairline);border-radius:9999px;padding:7px 13px;font-size:12px;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.score-pill b{color:var(--ink)}
 
 /* Sections */
 .section{padding:48px 32px;background:var(--canvas-soft);transition:background 0.2s}
@@ -229,4 +205,4 @@ button{font-family:inherit}
 .reveal-3{animation-delay:0.21s}
 .reveal-4{animation-delay:0.28s}
 @keyframes enter{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
-@media(prefers-reduced-motion:reduce){.reveal{animation:none}.blur-orb{animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal{animation:none}}

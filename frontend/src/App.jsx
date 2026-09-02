@@ -102,16 +102,26 @@ export default function App(){
           <div className="hero-texture">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
               <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 H 0 V 40" fill="none" stroke="rgba(255,255,255,0.09)" strokeWidth="0.6"/>
-                  <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="40 40" dur="14s" repeatCount="indefinite"/>
+                <pattern id="mech-fine" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M 32 0 H 0 V 32" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.07"/>
+                  <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="32 32" dur="20s" repeatCount="indefinite"/>
                 </pattern>
-                <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="0.85" fill="rgba(255,255,255,0.14)"/>
+                <pattern id="mech-major" width="160" height="160" patternUnits="userSpaceOnUse">
+                  <path d="M 160 0 H 0 V 160" fill="none" stroke="currentColor" strokeWidth="0.7" opacity="0.09"/>
+                  <circle cx="80" cy="80" r="0.9" fill="currentColor" opacity="0.18"/>
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#grid)"/>
-              <rect width="100%" height="100%" fill="url(#dots)" opacity="0.6"/>
+              <rect width="100%" height="100%" fill="url(#mech-fine)" color="var(--ink-faint)"/>
+              <rect width="100%" height="100%" fill="url(#mech-major)" color="var(--hairline)"/>
+              <g fill="none" stroke="currentColor" opacity="0.11" color="var(--hairline)">
+                <line x1="0" y1="50%" x2="100%" y2="50%" strokeDasharray="6 10" strokeWidth="0.6"/>
+                <line x1="50%" y1="0" x2="50%" y2="100%" strokeDasharray="6 10" strokeWidth="0.6"/>
+              </g>
+              <g color="var(--ink-faint)" opacity="0.13">
+                <circle cx="50%" cy="50%" r="42" fill="none" stroke="currentColor" strokeWidth="0.7" strokeDasharray="3 5"/>
+                <circle cx="50%" cy="50%" r="1.8" fill="currentColor"/>
+                {/* mechanical ticks removed — keep center only */}
+              </g>
             </svg>
           </div>
         </div>
