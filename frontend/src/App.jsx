@@ -13,6 +13,14 @@ function sevBadge(s){
 }
 
 export default function App(){
+  const [theme,setTheme]=useState(()=>{
+    if(typeof window==='undefined') return 'light'
+    const s=localStorage.getItem('csm-theme')
+    if(s) return s
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+  useEffect(()=>{ document.documentElement.setAttribute('data-theme',theme); localStorage.setItem('csm-theme',theme) },[theme])
+
   const [overview,setOverview]=useState(null)
   const [events,setEvents]=useState([])
   const [alerts,setAlerts]=useState([])
@@ -76,41 +84,38 @@ export default function App(){
           <div className="nav-links"><a href="#">Overview</a><a href="#">Events</a><a href="#">Alerts</a><a href="#">Timeline</a></div>
         </div>
         <div className="nav-right">
+          <button className="theme-toggle" aria-label="Toggle theme" onClick={()=>setTheme(t=>t==='light'?'dark':'light')} title={theme==='light'?'Dark mode':'Light mode'}>
+            {theme==='light' ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"/></svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            )}
+          </button>
           <a href="#" style={{fontSize:14,color:'var(--ink-muted)',fontWeight:500}}>Sign in</a>
           <button className="btn btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Try free'}</button>
         </div>
       </nav>
 
-      <section className="hero-band">
-        <div className="stickers"><i/><i/><i/><i/><i/></div>
-        <div className="hero-grid">
-          <div>
-            <div className="eyebrow reveal" style={{color:'var(--sky)'}}>Floci - Cloud Security Operations</div>
-            <h1 className="hero-title reveal reveal-1">One platform.<br/>Total visibility.</h1>
-            <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules and mapped to MITRE, in one calm, paper-soft view.</p>
-            <div className="reveal reveal-3" style={{marginTop:20, display:'flex', gap:10, flexWrap:'wrap', alignItems:'center'}}>
-              <button className="btn btn-primary" style={{padding:'12px 22px'}} onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
-              <span style={{fontSize:13, color:'rgba(255,255,255,0.6)'}}>No install - Local AWS - 8s poll</span>
-            </div>
-            <div className="score-pill reveal reveal-4">
-              <span style={{width:8,height:8,borderRadius:999,background: score>=80?'var(--green)':score>=40?'var(--orange)':'var(--pink)',display:'inline-block'}} />
-              <span>Security Score <b>{score}/100</b></span>
-              <span style={{color:'rgba(255,255,255,0.6)'}}>{overview? `${overview.open_alerts} open - ${overview.total_events} events` : '-'}</span>
-              <button onClick={loadAll} style={{marginLeft:6,background:'transparent',border:0,color:'rgba(255,255,255,0.6)',fontSize:12,cursor:'pointer',textDecoration:'underline'}}>Refresh</button>
-            </div>
+      {/* Hero — Dark Blue Blur — Architecture A Cinematic Center — Awwwards */}
+      <section className="hero-blur">
+        <div className="hero-blur-bg">
+          <div className="blur-orb orb-1" />
+          <div className="blur-orb orb-2" />
+          <div className="blur-orb orb-3" />
+        </div>
+        <div className="hero-blur-content">
+          <div className="hero-kicker reveal">Floci - Cloud Security Operations</div>
+          <h1 className="hero-title reveal reveal-1">One platform.<br/>Total visibility.</h1>
+          <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules and mapped to MITRE, in one calm view.</p>
+          <div className="hero-actions reveal reveal-3">
+            <button className="btn btn-primary hero-cta" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
+            <span className="hero-meta">No install - Local AWS - 8s poll</span>
           </div>
-
-          <div className="code-card reveal reveal-3">
-            <div className="code-dots"><i/><i/><i/></div>
-            <pre>{`// normalized event -> detector -> alert
-{
-  "user": "alice",
-  "service": "S3",
-  "action": "PutBucketAcl",
-  "resource": "csm-public-bucket"
-}
-- HIGH  Public S3 Bucket  85
-  T1530 - Data from Cloud Storage`}</pre>
+          <div className="score-pill reveal reveal-4">
+            <span style={{width:8,height:8,borderRadius:999,background: score>=80?'#1AAE39':score>=40?'#DD5B00':'#FF64C8',display:'inline-block'}} />
+            <span>Security Score <b>{score}/100</b></span>
+            <span style={{color:'rgba(255,255,255,0.6)'}}>{overview? `${overview.open_alerts} open - ${overview.total_events} events` : '-'}</span>
+            <button onClick={loadAll} style={{marginLeft:6,background:'transparent',border:0,color:'rgba(255,255,255,0.6)',fontSize:12,cursor:'pointer',textDecoration:'underline'}}>Refresh</button>
           </div>
         </div>
       </section>
@@ -216,7 +221,7 @@ export default function App(){
 
       <section className="section" style={{paddingTop:0}}>
         <div style={{maxWidth:1280,margin:'0 auto',background:'var(--ink)',borderRadius:12,padding:24,display:'flex',justifyContent:'space-between',gap:20,alignItems:'center',flexWrap:'wrap'}}>
-          <div><div style={{color:'white',fontSize:18,fontWeight:600}}>Ready to test the pipeline?</div><div style={{color:'rgba(255,255,255,0.6)',fontSize:13,marginTop:4}}>One click creates a public bucket, an admin policy, a new key and a deletion.</div></div>
+          <div><div style={{color:'var(--canvas)',fontSize:18,fontWeight:600}}>Ready to test the pipeline?</div><div style={{color:'var(--ink-faint)',fontSize:13,marginTop:4}}>One click creates a public bucket, an admin policy, a new key and a deletion.</div></div>
           <button className="btn btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo again'}</button>
         </div>
       </section>
@@ -226,7 +231,7 @@ export default function App(){
           <div><h4>CSM</h4><div style={{color:'var(--ink-muted)',fontSize:13,lineHeight:1.5}}>Floci local AWS - Flask - SQLite - MITRE ATT&CK. College project - detection only.</div></div>
           <div><h4>Product</h4><a href="#">Overview</a><a href="#">Events</a><a href="#">Alerts</a><a href="#">Timeline</a></div>
           <div><h4>Resources</h4><a href="#">DESIGN.md</a><a href="#">API Docs</a><a href="#">Floci Setup</a></div>
-          <div><h4>Notion-inspired</h4><div style={{color:'var(--ink-muted)',fontSize:13}}>Paper canvas #F6F5F4 - Inter tight tracking - blue pill #0075DE</div></div>
+          <div><h4>Notion-inspired</h4><div style={{color:'var(--ink-muted)',fontSize:13}}>Paper canvas #F6F5F4 - Inter tight - blue pill #0075DE - Dark mode toggle</div></div>
         </div>
       </footer>
 
