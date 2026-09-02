@@ -96,12 +96,24 @@ export default function App(){
         </div>
       </nav>
 
-      {/* Hero — Dark Blue Blur — Architecture A Cinematic Center — Awwwards */}
+      {/* Hero — Small SVG Texture — No Blur */}
       <section className="hero-blur">
         <div className="hero-blur-bg">
-          <div className="blur-orb orb-1" />
-          <div className="blur-orb orb-2" />
-          <div className="blur-orb orb-3" />
+          <div className="hero-texture">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 H 0 V 40" fill="none" stroke="rgba(255,255,255,0.09)" strokeWidth="0.6"/>
+                  <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="40 40" dur="14s" repeatCount="indefinite"/>
+                </pattern>
+                <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="0.85" fill="rgba(255,255,255,0.14)"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)"/>
+              <rect width="100%" height="100%" fill="url(#dots)" opacity="0.6"/>
+            </svg>
+          </div>
         </div>
         <div className="hero-blur-content">
           <div className="hero-kicker reveal">Floci - Cloud Security Operations</div>
