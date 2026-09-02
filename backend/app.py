@@ -8,7 +8,11 @@ from .event_collector import collect
 from .risk_engine import overall_security_score
 from .config import DB_PATH
 
-app = Flask(__name__, static_folder="../frontend", static_url_path="")
+import os as _os
+_frontend_dist = _os.path.join(_os.path.dirname(__file__), "../frontend/dist")
+_frontend_src = _os.path.join(_os.path.dirname(__file__), "../frontend")
+_static = _frontend_dist if _os.path.exists(_frontend_dist) else _frontend_src
+app = Flask(__name__, static_folder=_static, static_url_path="")
 CORS(app)
 init_db()
 
