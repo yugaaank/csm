@@ -1,6 +1,6 @@
 # Cloud Security Monitor — Floci
 
-A small but functional cloud security monitor that uses **Floci** as a local AWS-compatible environment. Collects cloud activity, detects 5 security threats with rule-based detection, scores risk, maps to MITRE ATT&CK, and displays everything in a MongoDB-inspired dashboard.
+A small but functional cloud security monitor that uses **Floci** as a local AWS-compatible environment. Collects cloud activity, detects 5 security threats with rule-based detection, scores risk, maps to MITRE ATT&CK, and displays everything in a Notion-inspired dashboard.
 
 Built for a college project demo — backend, cloud integration, event processing, security analysis, database, and frontend in one runnable prototype.
 
@@ -22,7 +22,7 @@ Floci → Cloud Activity → Event Collector → Detection Engine → Risk Scori
   | 5 | Excessive API Activity (>20 ops / 60s per user, configurable) | HIGH | 80 | T1078 Valid Accounts |
 - **Risk scoring** 0–100 (`LOW 0-39`, `MEDIUM 40-69`, `HIGH 70-89`, `CRITICAL 90-100`), overall score = `100 - total_open_risk/5`
 - **MITRE mapping + recommendations** per alert, no auto-remediation
-- **Dashboard** — MongoDB deep-teal + green pill (`#001E2B` + `#00ED64`), security score, counts by severity, recent activity (filter service/user/action), alerts (filter severity/status, detail drawer), status transitions `OPEN → REVIEWED → RESOLVED`, and event timeline (last 50)
+- **Dashboard** — Notion paper #F6F5F4 + blue pill #0075DE, security score, counts by severity, recent activity (filter service/user/action), alerts (filter severity/status, detail drawer), status transitions `OPEN → REVIEWED → RESOLVED`, and event timeline (last 50)
 
 ## Architecture
 
@@ -37,7 +37,7 @@ Floci AWS (S3, IAM)  ──boto3──▶  Flask (backend/app.py)
                                           │
                                           ▼
                                    React Vite (frontend/src/App.jsx)
-                                   MongoDB theme — index.css (#001E2B + #00ED64)
+                                   Notion theme — index.css (#F6F5F4 + #0075DE + Inter tight)
                                    proxy /api → :5000 (vite.config.js)
 ```
 
@@ -58,7 +58,7 @@ frontend/             Vite + React 19
   vite.config.js      proxy /api → http://localhost:5000
   index.html
   src/
-    App.jsx           MongoDB dashboard
+    App.jsx           Notion dashboard
     main.jsx
     index.css         Black+Gold design system
   public/
@@ -214,7 +214,7 @@ If demo shows nothing: ensure backend is running (`curl http://localhost:5000/ap
 
 ## Tech Stack
 
-Floci (LocalStack-compatible) · Python Flask + Flask-Cors · boto3 · SQLite · React 19 + Vite + bun · MongoDB Design System (#001E2B + #00ED64). No ML, no auto-remediation, minimal dependencies. OS-agnostic (Linux/macOS/Windows WSL + Docker).
+Floci (LocalStack-compatible) · Python Flask + Flask-Cors · boto3 · SQLite · React 19 + Vite + bun · Notion Design System (#F6F5F4 + #0075DE + paper calm). No ML, minimal deps.
 
 ## License
 
