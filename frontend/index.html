@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cloud Security Monitor</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="dot"></div>
+    <h1>CLOUD SECURITY MONITOR</h1>
+    <span class="sub">Floci &middot; Rule-based &middot; MITRE ATT&CK</span>
+  </div>
+  <div class="actions">
+    <button id="btn-simulate">Run Demo Scenario</button>
+    <button id="btn-refresh" class="ghost">Refresh</button>
+  </div>
+</header>
+
+<main>
+  <section class="overview" id="overview">
+    <div class="score-card">
+      <div class="score-label">Security Score</div>
+      <div class="score-value" id="score">--/100</div>
+      <div class="score-bar"><div id="score-fill"></div></div>
+      <div class="score-meta" id="score-meta"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span id="st-total-events">-</span><label>Total Events</label></div>
+      <div class="stat"><span id="st-total-alerts">-</span><label>Total Alerts</label></div>
+      <div class="stat crit"><span id="st-crit">-</span><label>Critical</label></div>
+      <div class="stat high"><span id="st-high">-</span><label>High</label></div>
+      <div class="stat med"><span id="st-med">-</span><label>Medium</label></div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Recent Activity</h2>
+        <div class="filters">
+          <select id="f-service"><option value="">All services</option><option>S3</option><option>IAM</option></select>
+          <input id="f-user" placeholder="Filter user"/>
+          <input id="f-action" placeholder="Filter action"/>
+        </div>
+      </div>
+      <table class="tbl" id="tbl-events">
+        <thead><tr><th>Time</th><th>User</th><th>Service</th><th>Action</th><th>Resource</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Security Alerts</h2>
+        <div class="filters">
+          <select id="f-sev"><option value="">All severity</option><option>CRITICAL</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option></select>
+          <select id="f-status"><option value="">All status</option><option>OPEN</option><option>REVIEWED</option><option>RESOLVED</option></select>
+          <input id="f-date" type="date"/>
+        </div>
+      </div>
+      <div id="alerts" class="alerts"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Event Timeline</h2><span class="hint">last 50 events</span></div>
+    <div id="timeline" class="timeline"></div>
+  </section>
+</main>
+
+<div id="drawer" class="drawer hidden">
+  <div class="drawer-inner">
+    <button class="close" id="drawer-close">×</button>
+    <div id="drawer-body"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
