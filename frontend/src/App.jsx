@@ -77,7 +77,7 @@ export default function App(){
 
   return (
     <>
-      <div className="promo">MongoDB-style CSM — Built on Floci local AWS • <a href="#">Read the docs →</a></div>
+      <div className="promo">MongoDB-style CSM. Built on Floci local AWS • <a href="#">Read the docs →</a></div>
 
       <nav className="nav">
         <div className="nav-left">
@@ -88,28 +88,30 @@ export default function App(){
         </div>
         <div className="nav-right">
           <a className="link" href="#">Sign in</a>
-          <button className="btn-pill btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running…':'Try Free — Run Demo'}</button>
+          <button className="btn-pill btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running…':'Try Free: Run Demo'}</button>
         </div>
       </nav>
 
+      {/* Hero - Architecture B: Asymmetric Split */}
       <section className="hero-dark">
         <div className="hero-grid">
-          <div>
-            <div className="hero-kicker">Floci • Cloud Security Operations</div>
-            <h1 className="hero-title">One platform.<br/>Total visibility.</h1>
-            <p className="hero-sub">Collect every S3 and IAM event from Floci, detect 5 threats with rule-based checks, score risk 0–100 and map to MITRE ATT&CK — all in one MongoDB-inspired operations view.</p>
-            <div className="hero-actions">
-              <button className="btn-pill btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running…':'Run Demo Scenario'}</button>
-              <button className="btn-secondary-on-dark" onClick={loadAll}>Refresh</button>
+          <div className="hero-left">
+            <div className="hero-kicker reveal">Floci • Cloud Security Operations</div>
+            <h1 className="hero-title reveal reveal-1">One platform.<br/>Total visibility.</h1>
+            <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by 5 rules and mapped to MITRE in one auditable view.</p>
+            <div className="hero-actions reveal reveal-3">
+              <button className="btn-pill btn-primary hero-cta" onClick={runSimulate} disabled={busy}>{busy?'Running…':'Run Demo Scenario'}</button>
+              <span className="hero-meta">No install • Local AWS • 8s poll</span>
             </div>
-            <div className="score-pill">
+            <div className="score-pill reveal reveal-4">
               <span style={{width:10,height:10,borderRadius:999,background:scoreColor,display:'inline-block'}} />
               <span>Security Score <b>{score}/100</b></span>
-              <span style={{color:'var(--on-dark-muted)'}}>{overview? `${overview.open_alerts} open • ${overview.total_events} events`:'—'}</span>
+              <span style={{color:'var(--on-dark-muted)'}}>{overview? `${overview.open_alerts} open • ${overview.total_events} events`:'-'}</span>
+              <button onClick={loadAll} style={{marginLeft:8,background:'transparent',border:0,color:'var(--on-dark-muted)',fontSize:12,cursor:'pointer',textDecoration:'underline'}}>Refresh</button>
             </div>
           </div>
 
-          <div className="code-mockup">
+          <div className="code-mockup hero-visual reveal reveal-3">
             <div className="code-dots"><i/><i/><i/></div>
             <pre>{`// normalized event → detector → alert
 {
@@ -125,11 +127,15 @@ export default function App(){
 → MITRE + recommendation`}</pre>
           </div>
         </div>
-        <div style={{maxWidth:1280,margin:'40px auto 0',background:'var(--teal)',borderRadius:12,padding:24,display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:16,border:'1px solid var(--hairline-dark)'}}>
-          <div><div style={{fontSize:11,letterSpacing:1,textTransform:'uppercase',color:'var(--on-dark-muted)'}}>Total Events</div><div style={{fontSize:28,fontWeight:500,marginTop:6}}>{overview?.total_events ?? '—'}</div></div>
-          <div><div style={{fontSize:11,letterSpacing:1,textTransform:'uppercase',color:'var(--on-dark-muted)'}}>Critical</div><div style={{fontSize:28,fontWeight:500,marginTop:6, color:'#fff'}}>{by.CRITICAL ?? 0}</div></div>
-          <div><div style={{fontSize:11,letterSpacing:1,textTransform:'uppercase',color:'var(--on-dark-muted)'}}>High</div><div style={{fontSize:28,fontWeight:500,marginTop:6, color:'var(--brand-green)'}}>{by.HIGH ?? 0}</div></div>
-          <div><div style={{fontSize:11,letterSpacing:1,textTransform:'uppercase',color:'var(--on-dark-muted)'}}>Medium</div><div style={{fontSize:28,fontWeight:500,marginTop:6}}>{by.MEDIUM ?? 0}</div></div>
+      </section>
+
+      {/* Metrics - outside hero viewport */}
+      <section className="metrics-band">
+        <div className="metrics-grid">
+          <div className="metric-mini"><div className="metric-k">Total Events</div><div className="metric-v">{overview?.total_events ?? '-'}</div></div>
+          <div className="metric-mini"><div className="metric-k">Critical</div><div className="metric-v" style={{color:'#fff'}}>{by.CRITICAL ?? 0}</div></div>
+          <div className="metric-mini"><div className="metric-k">High</div><div className="metric-v" style={{color:'var(--brand-green)'}}>{by.HIGH ?? 0}</div></div>
+          <div className="metric-mini"><div className="metric-k">Medium</div><div className="metric-v">{by.MEDIUM ?? 0}</div></div>
         </div>
       </section>
 
@@ -161,14 +167,14 @@ export default function App(){
               <table className="table">
                 <thead><tr><th>Time</th><th>User</th><th>Service</th><th>Action</th><th>Resource</th></tr></thead>
                 <tbody>
-                  {filteredEvents.length===0 && <tr><td colSpan={5} className="empty">No events — run demo</td></tr>}
+                  {filteredEvents.length===0 && <tr><td colSpan={5} className="empty">No events - run demo</td></tr>}
                   {filteredEvents.map(r=>(
                     <tr key={r.id}>
                       <td className="mono">{fmtTime(r.timestamp)}</td>
                       <td>{r.user}</td>
                       <td><span className="badge badge-green-soft" style={{padding:'2px 8px'}}>{r.service}</span></td>
                       <td>{r.action}</td>
-                      <td className="mono" title={r.resource}>{r.resource || '—'}</td>
+                      <td className="mono" title={r.resource}>{r.resource || '-'}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -187,7 +193,7 @@ export default function App(){
               </select>
             </div>
             <div className="alerts" style={{maxHeight:520,overflow:'auto'}}>
-              {filteredAlerts.length===0 && <div className="empty">No alerts — clean bill of health</div>}
+              {filteredAlerts.length===0 && <div className="empty">No alerts - clean bill of health</div>}
               {filteredAlerts.map(a=>(
                 <div key={a.id} className="alert-card" onClick={()=>openDrawer(a.id)}>
                   <div className="alert-top">
@@ -196,7 +202,7 @@ export default function App(){
                     <span style={{marginLeft:'auto',fontSize:12,fontWeight:600, color:sevTagColor(a.severity)}}>{a.risk_score}/100</span>
                   </div>
                   <h4 className="alert-title">{a.title}</h4>
-                  <div className="alert-meta"><span>MITRE <b style={{color:'var(--ink)'}}>{a.mitre_technique||'—'}</b></span></div>
+                  <div className="alert-meta"><span>MITRE <b style={{color:'var(--ink)'}}>{a.mitre_technique||'-'}</b></span></div>
                   <div className="alert-desc">{a.description}</div>
                 </div>
               ))}
@@ -209,7 +215,7 @@ export default function App(){
         <div className="section-head">
           <div>
             <h2 className="section-title">Event timeline</h2>
-            <p className="section-desc">Last 50 events chronological — the audit trail that turns isolated actions into an incident story.</p>
+            <p className="section-desc">Last 50 events chronological - the audit trail that turns isolated actions into an incident story.</p>
           </div>
           <span className="badge badge-green-soft">Last 50 • live</span>
         </div>
@@ -221,7 +227,7 @@ export default function App(){
                 <div className="step-when">{fmtTime(r.timestamp)}<br/><b>{r.user}</b></div>
                 <div>
                   <div className="step-what">{r.action} <span style={{color:'var(--steel)',fontWeight:400}}>• {r.service}</span></div>
-                  <div className="step-res">{r.resource || '—'}</div>
+                  <div className="step-res">{r.resource || '-'}</div>
                 </div>
               </div>
             ))}
@@ -231,14 +237,14 @@ export default function App(){
 
       <section className="section-soft" style={{padding:'32px'}}>
         <div style={{maxWidth:1280,margin:'0 auto',background:'var(--teal-deep)',borderRadius:12,padding:32,display:'flex',justifyContent:'space-between',gap:20,alignItems:'center',flexWrap:'wrap'}}>
-          <div><div style={{color:'var(--on-dark)',fontSize:22,fontWeight:500}}>Ready to test the pipeline?</div><div style={{color:'var(--on-dark-muted)',fontSize:14,marginTop:6}}>One click creates a public bucket, an admin policy, a new key and a deletion — then watch findings appear.</div></div>
+          <div><div style={{color:'var(--on-dark)',fontSize:22,fontWeight:500}}>Ready to test the pipeline?</div><div style={{color:'var(--on-dark-muted)',fontSize:14,marginTop:6}}>One click creates a public bucket, an admin policy, a new key and a deletion - then watch findings appear.</div></div>
           <button className="btn-pill btn-primary" onClick={runSimulate} disabled={busy}>{busy?'Running…':'Run Demo Again'}</button>
         </div>
       </section>
 
       <footer className="footer">
         <div className="footer-grid">
-          <div><h4>CSM</h4><div style={{color:'var(--on-dark-muted)',fontSize:13,lineHeight:1.6}}>Floci local AWS • Flask • SQLite • MITRE ATT&CK. College project — no auto-remediation, detection only.</div></div>
+          <div><h4>CSM</h4><div style={{color:'var(--on-dark-muted)',fontSize:13,lineHeight:1.6}}>Floci local AWS • Flask • SQLite • MITRE ATT&CK. College project - no auto-remediation, detection only.</div></div>
           <div><h4>Product</h4><a href="#">Overview</a><a href="#">Events</a><a href="#">Alerts</a><a href="#">Timeline</a></div>
           <div><h4>Resources</h4><a href="#">DESIGN.md</a><a href="#">API Docs</a><a href="#">Floci Setup</a></div>
           <div><h4>MongoDB-inspired</h4><div style={{color:'var(--on-dark-muted)',fontSize:13}}>Deep teal hero + green pills • 12px cards • Euclid Circular A</div></div>
@@ -256,10 +262,10 @@ export default function App(){
               <div style={{marginTop:6,fontSize:13,color:'var(--steel)'}}>{fmtDate(drawer.created_at)} • {drawer.status} • {drawer.risk_score}/100</div>
             </div>
             <div style={{padding:20}}>
-              <div className="kv"><label>User</label><div className="mono">{drawer.event?.user || '—'}</div></div>
-              <div className="kv"><label>Service / Action</label><div className="mono">{drawer.event? `${drawer.event.service} ${drawer.event.action}`:'—'}</div></div>
-              <div className="kv"><label>Resource</label><div className="mono" style={{wordBreak:'break-all'}}>{drawer.event?.resource || '—'}</div></div>
-              <div className="kv"><label>MITRE</label><div className="mono">{drawer.mitre_technique || '—'}</div></div>
+              <div className="kv"><label>User</label><div className="mono">{drawer.event?.user || '-'}</div></div>
+              <div className="kv"><label>Service / Action</label><div className="mono">{drawer.event? `${drawer.event.service} ${drawer.event.action}`:'-'}</div></div>
+              <div className="kv"><label>Resource</label><div className="mono" style={{wordBreak:'break-all'}}>{drawer.event?.resource || '-'}</div></div>
+              <div className="kv"><label>MITRE</label><div className="mono">{drawer.mitre_technique || '-'}</div></div>
               <div className="kv"><label>Reason</label><div>{drawer.description}</div></div>
               <div className="kv"><label>Recommendation</label><div style={{color:'var(--brand-green-dark)',fontWeight:500}}>{drawer.recommendation}</div></div>
               <div style={{display:'flex',gap:8,flexWrap:'wrap',marginTop:16}}>
