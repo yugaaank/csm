@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F6F5F4"/>
+  <!-- mechanical grid faint -->
+  <defs>
+    <pattern id="g1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 H 0 V 40" fill="none" stroke="#E6E6E6" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="g2" width="160" height="160" patternUnits="userSpaceOnUse">
+      <path d="M 160 0 H 0 V 160" fill="none" stroke="#E6E6E6" stroke-width="1"/>
+      <circle cx="80" cy="80" r="0.8" fill="#A39E98"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+  <!-- header bar -->
+  <rect x="0" y="0" width="1200" height="56" fill="white" stroke="#E6E6E6"/>
+  <rect x="24" y="14" width="28" height="28" rx="4" fill="#000"/>
+  <text x="38" y="33" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">◈</text>
+  <text x="62" y="32" font-family="Inter, sans-serif" font-size="15" font-weight="700" letter-spacing="-0.2" fill="#000">CSM</text>
+  <text x="110" y="32" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="1" fill="#A39E98">FLOCI - CLOUD SECURITY MONITOR</text>
+  <!-- hero copy -->
+  <text x="60" y="190" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="1.2" fill="#A39E98">FLOCI — CLOUD SECURITY OPERATIONS</text>
+  <text x="60" y="250" font-family="Inter, sans-serif" font-size="64" font-weight="700" letter-spacing="-2.1" fill="#000">One platform.</text>
+  <text x="60" y="315" font-family="Inter, sans-serif" font-size="64" font-weight="700" letter-spacing="-2.1" fill="#000">Total visibility.</text>
+  <text x="60" y="360" font-family="Inter, sans-serif" font-size="16" fill="#615D59">Every S3 and IAM event from Floci, flagged by five</text>
+  <text x="60" y="382" font-family="Inter, sans-serif" font-size="16" fill="#615D59">rules and mapped to MITRE, in one calm view.</text>
+  <!-- pill CTAs -->
+  <rect x="60" y="420" width="188" height="44" rx="22" fill="#0075DE"/>
+  <text x="154" y="448" font-family="Inter, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5" fill="white" text-anchor="middle">Run demo scenario</text>
+  <text x="268" y="447" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.8" fill="#A39E98">NO INSTALL — LOCAL AWS — 8S POLL</text>
+  <!-- score pill -->
+  <rect x="60" y="480" width="320" height="36" rx="18" fill="white" stroke="#E6E6E6"/>
+  <circle cx="76" cy="498" r="5" fill="#1AAE39"/>
+  <text x="88" y="503" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#000">Security Score  0/100</text>
+  <text x="200" y="503" font-family="Inter, sans-serif" font-size="11" fill="#A39E98">19 open — 128 events</text>
+  <!-- bottom bar -->
+  <rect x="0" y="590" width="1200" height="40" fill="#000"/>
+  <text x="24" y="615" font-family="Inter, sans-serif" font-size="10" letter-spacing="1" fill="#A39E98">CSM - FLOCI - FLASK - SQLITE - MITRE ATT&amp;CK</text>
+</svg>
