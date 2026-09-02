@@ -223,9 +223,8 @@ export default function App(){
           </div>
           <span className="badge badge-paper">Last 50 - live</span>
         </div>
-        <div className="card" style={{maxWidth:1280,margin:'0 auto'}}>
-          <div className="timeline">
-            {timeline.length===0 && <div className="empty">No timeline</div>}
+        <div className="card" style={{maxWidth:1280,margin:'0 auto',maxHeight:380,overflow:'hidden',display:'flex',flexDirection:'column'}}>
+          <div className="timeline" style={{maxHeight:380,overflowY:'auto'}}>
             {timeline.map((r,i)=>(
               <div key={i} className="step">
                 <div className="step-when">{fmtTime(r.timestamp)}<br/><b>{r.user}</b></div>
