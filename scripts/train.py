@@ -37,12 +37,31 @@ def main():
     parser.add_argument("--db", default=None, help="path to csm.db")
     parser.add_argument("--contamination", type=float, default=0.05)
     parser.add_argument("--synthetic", action="store_true", help="train only on synthetic data")
+    parser.add_argument("--labeled", default=None, help="path to data/labeled.json — trains on benign (label 0) only, best for evaluation")
     args = parser.parse_args()
 
     # build X
     X = None
 
-    if not args.synthetic:
+    if args.labeled:
+        try:
+            import json
+            from backend.ml_features import featurize
+            data = json.load(open(args.labeled))
+            benign = [d["event"] for d in data if d.get("label")==0]
+            benign_sorted = sorted(benign, key=lambda x: x.get("timestamp",""))
+            feats=[]
+            recent=[]
+            for evt in benign_sorted:
+                recent_window = recent[-99:]+[evt] if recent else [evt]
+                feats.append(featurize(evt, recent_window))
+                recent.append(evt)
+            X = np.array(feats, dtype=float)
+            print(f"Built {len(feats)} benign vectors from {args.labeled}")
+        except Exception as e:
+            print(f"Labeled load failed ({e}), falling back")
+            X=None
+    if X is None and not args.synthetic:
         try:
             from backend.database import query
             from backend.ml_features import featurize
@@ -52,8 +71,22 @@ def main():
             # ensure import sees correct DB
             os.environ["CSM_DB"] = os.path.abspath(db_path)
 
+            # exclude events marked as false positive feedback — feedback loop
+            try:
+                fps = query("SELECT event_id FROM feedback WHERE is_false_positive=1")
+                fp_ids = {r["event_id"] for r in fps}
+                if fp_ids:
+                    print(f"Excluding {len(fp_ids)} false-positive events from training")
+            except Exception:
+                fp_ids = set()
+
             rows = query("SELECT * FROM events ORDER BY id ASC LIMIT 500")
             if rows:
+                # filter out FP events
+                rows_filtered = [r for r in rows if r["id"] not in fp_ids]
+                if len(rows_filtered) < len(rows):
+                    print(f"Filtered {len(rows)-len(rows_filtered)} FP events, {len(rows_filtered)} remain")
+                rows = rows_filtered
                 feats = []
                 # for each row, use up to 100 prior rows as recent context
                 for idx, row in enumerate(rows):
@@ -75,7 +108,6 @@ def main():
         except Exception as e:
             print(f"DB featurization failed ({e}), falling back to synthetic")
             X = None
-
     if X is None or len(X) < 20:
         syn = _synthetic_normal(200)
         if X is not None and len(X) > 0:

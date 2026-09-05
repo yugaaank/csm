@@ -1,0 +1,282 @@
+[
+  {
+    "eventTime": "2026-09-05T03:00:12+00:00",
+    "eventName": "GetObject",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "mallory"
+    },
+    "sourceIPAddress": "203.0.113.99",
+    "requestParameters": {
+      "bucketName": "exfil-bucket/data"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "eventTime": "2026-09-05T12:28:54+00:00",
+    "eventName": "GetBucketLocation",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "bob"
+    },
+    "sourceIPAddress": "10.0.1.11",
+    "requestParameters": {
+      "bucketName": "csm-bucket-3/file12.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T16:34:24+00:00",
+    "eventName": "GetBucketLocation",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "alice"
+    },
+    "sourceIPAddress": "10.0.1.10",
+    "requestParameters": {
+      "bucketName": "csm-bucket-2/file32.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T16:22:30+00:00",
+    "eventName": "ListObjectVersions",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "carol"
+    },
+    "sourceIPAddress": "10.0.1.12",
+    "requestParameters": {
+      "bucketName": "csm-bucket-1/file57.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T14:47:45+00:00",
+    "eventName": "DescribeVolumes",
+    "eventSource": "ec2.amazonaws.com",
+    "userIdentity": {
+      "userName": "carol"
+    },
+    "sourceIPAddress": "10.0.1.12",
+    "requestParameters": {
+      "bucketName": "user/carol"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T11:35:35+00:00",
+    "eventName": "ListObjects",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "carol"
+    },
+    "sourceIPAddress": "10.0.1.12",
+    "requestParameters": {
+      "bucketName": "csm-bucket-5/file53.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T03:00:46+00:00",
+    "eventName": "GetObject",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "mallory"
+    },
+    "sourceIPAddress": "203.0.113.99",
+    "requestParameters": {
+      "bucketName": "exfil-bucket/data"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "eventTime": "2026-09-05T11:57:38+00:00",
+    "eventName": "GetCallerIdentity",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": {
+      "userName": "bob"
+    },
+    "sourceIPAddress": "10.0.1.11",
+    "requestParameters": {
+      "bucketName": "user/bob"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T14:26:38+00:00",
+    "eventName": "GetObject",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "alice"
+    },
+    "sourceIPAddress": "10.0.1.10",
+    "requestParameters": {
+      "bucketName": "csm-bucket-2/file74.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T17:28:56+00:00",
+    "eventName": "GetCallerIdentity",
+    "eventSource": "sts.amazonaws.com",
+    "userIdentity": {
+      "userName": "alice"
+    },
+    "sourceIPAddress": "10.0.1.10",
+    "requestParameters": {
+      "bucketName": "user/alice"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T04:06:13+00:00",
+    "eventName": "GetObject",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "bob"
+    },
+    "sourceIPAddress": "198.51.100.77",
+    "requestParameters": {
+      "bucketName": "csm-secure-bucket/secret"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "eventTime": "2026-09-05T17:02:03+00:00",
+    "eventName": "GetObject",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "carol"
+    },
+    "sourceIPAddress": "10.0.1.12",
+    "requestParameters": {
+      "bucketName": "csm-bucket-5/file38.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T16:22:36+00:00",
+    "eventName": "GetCallerIdentity",
+    "eventSource": "sts.amazonaws.com",
+    "userIdentity": {
+      "userName": "dave"
+    },
+    "sourceIPAddress": "10.0.1.13",
+    "requestParameters": {
+      "bucketName": "user/dave"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T15:20:11+00:00",
+    "eventName": "GetCallerIdentity",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": {
+      "userName": "dave"
+    },
+    "sourceIPAddress": "10.0.1.13",
+    "requestParameters": {
+      "bucketName": "user/dave"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T10:21:38+00:00",
+    "eventName": "ListBuckets",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "carol"
+    },
+    "sourceIPAddress": "10.0.1.12",
+    "requestParameters": {
+      "bucketName": "csm-bucket-5/file77.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T03:58:26+00:00",
+    "eventName": "GetObject",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "bob"
+    },
+    "sourceIPAddress": "198.51.100.77",
+    "requestParameters": {
+      "bucketName": "csm-secure-bucket/secret"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "eventTime": "2026-09-05T15:04:42+00:00",
+    "eventName": "GetCallerIdentity",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": {
+      "userName": "carol"
+    },
+    "sourceIPAddress": "10.0.1.15",
+    "requestParameters": {
+      "bucketName": "user/carol"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T17:23:58+00:00",
+    "eventName": "GetUser",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": {
+      "userName": "dave"
+    },
+    "sourceIPAddress": "10.0.1.13",
+    "requestParameters": {
+      "bucketName": "user/dave"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T09:09:15+00:00",
+    "eventName": "ListObjectVersions",
+    "eventSource": "s3.amazonaws.com",
+    "userIdentity": {
+      "userName": "alice"
+    },
+    "sourceIPAddress": "10.0.1.10",
+    "requestParameters": {
+      "bucketName": "csm-bucket-5/file53.txt"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "eventTime": "2026-09-05T13:59:57+00:00",
+    "eventName": "GetUser",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": {
+      "userName": "alice"
+    },
+    "sourceIPAddress": "10.0.1.10",
+    "requestParameters": {
+      "bucketName": "user/alice"
+    },
+    "label": 0,
+    "attack_type": null
+  }
+]

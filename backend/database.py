@@ -26,6 +26,14 @@ CREATE TABLE IF NOT EXISTS alerts (
     created_at TEXT,
     status TEXT DEFAULT 'OPEN'
 );
+CREATE TABLE IF NOT EXISTS feedback (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    alert_id INTEGER REFERENCES alerts(id),
+    event_id INTEGER,
+    is_false_positive INTEGER NOT NULL,
+    reason TEXT,
+    created_at TEXT NOT NULL
+);
 """
 
 def get_conn():

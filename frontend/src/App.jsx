@@ -34,17 +34,19 @@ export default function App(){
   const [fAction,setFAction]=useState('')
   const [fSev,setFSev]=useState('')
   const [fStatus,setFStatus]=useState('')
+  const [metrics,setMetrics]=useState(null)
 
   async function loadAll(){
     try{
-      const [o,e,a,t,m]=await Promise.all([
+      const [o,e,a,t,m,met]=await Promise.all([
         jget('/api/overview'),
         jget('/api/events?limit=100'),
         jget('/api/alerts'),
         jget('/api/timeline'),
         jget('/api/ml/status').catch(()=> null),
+        jget('/api/metrics').catch(()=> null),
       ])
-      setOverview(o); setEvents(e); setAlerts(a); setTimeline(t); if(m) setMlStatus(m)
+      setOverview(o); setEvents(e); setAlerts(a); setTimeline(t); if(m) setMlStatus(m); if(met && !met.error) setMetrics(met)
     }catch(e){ console.error(e) }
   }
   useEffect(()=>{ loadAll(); const id=setInterval(loadAll,8000); return ()=>clearInterval(id) },[])
@@ -168,6 +170,39 @@ export default function App(){
           <div className="stat-card"><div className="stat-label">Medium</div><div className="stat-value">{by.MEDIUM ?? 0}</div><div className="stat-sub">Monitor</div></div>
         </div>
 
+        {metrics && (
+          <div className="card" style={{maxWidth:1280, margin:'0 auto 20px', padding:'16px 20px'}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12}}>
+              <div>
+                <div className="eyebrow">Model Evaluation — labeled 500 (400 benign / 100 attack)</div>
+                <div style={{fontSize:13, color:'var(--ink-muted)', marginTop:4}}>Rules vs ML vs Combined — higher recall = fewer missed attacks</div>
+              </div>
+              <button className="btn-secondary" style={{height:32, fontSize:12}} onClick={async()=>{
+                const r=await fetch(API+'/api/metrics'); const j=await r.json(); if(!j.error) setMetrics(j);
+                // also trigger evaluate via API if needed: POST to train then evaluate
+              }}>Refresh metrics</button>
+            </div>
+            <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:12, marginTop:14}}>
+              {['rules','ml','combined'].map(k=>{
+                const m=metrics[k];
+                if(!m) return null;
+                const isBest = k==='combined';
+                return (
+                  <div key={k} style={{border:`1px solid ${isBest?'var(--teal)':'var(--hairline)'}`, borderRadius:8, padding:12, background: isBest?'rgba(42,157,153,0.06)':'var(--surface)'}}>
+                    <div style={{fontSize:11, fontWeight:700, letterSpacing:'0.08em', textTransform:'uppercase', color: isBest?'var(--teal)':'var(--ink-faint)'}}>{k} {isBest&&'★'}</div>
+                    <div style={{marginTop:6, fontSize:13, display:'grid', gap:2}}>
+                      <div>Precision <b>{(m.precision*100).toFixed(0)}%</b> <span style={{color:'var(--ink-faint)'}}>• Recall <b>{(m.recall*100).toFixed(0)}%</b></span></div>
+                      <div>F1 <b>{(m.f1*100).toFixed(0)}%</b> <span style={{color:'var(--ink-faint)'}}>• Acc {(m.accuracy*100).toFixed(0)}%</span></div>
+                      <div style={{fontSize:11, color:'var(--ink-muted)'}}>TP {m.tp} FP {m.fp} FN {m.fn} TN {m.tn}</div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <div style={{marginTop:10, fontSize:11, color:'var(--ink-faint)'}}>Run <code>uv run python scripts/evaluate.py</code> to recompute from <code>data/labeled.json</code> → <code>ml/metrics.json</code>.</div>
+          </div>
+        )}
+
         <div className="section-head">
           <div>
             <div className="eyebrow">Monitoring</div>
@@ -289,7 +324,13 @@ export default function App(){
                 <button className="btn btn-primary" onClick={()=>setStatus(drawer.id,'RESOLVED')}>Mark Resolved</button>
                 <button className="btn-secondary" onClick={()=>setStatus(drawer.id,'REVIEWED')}>Reviewed</button>
                 <button className="btn-secondary" onClick={()=>setStatus(drawer.id,'OPEN')}>Reopen</button>
+                <button className="btn-secondary" onClick={async()=>{
+                  await fetch(API+'/api/alerts/'+drawer.id+'/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({is_false_positive:true, reason:'marked via UI'})});
+                  setDrawer({...drawer, status:'RESOLVED'});
+                  loadAll();
+                }} title="Exclude this event from next ML training" style={{borderColor:'var(--teal)', color:'var(--teal)'}}>False Positive</button>
               </div>
+              <div style={{marginTop:10, fontSize:11, color:'var(--ink-faint)'}}>False Positive excludes this event from next <code>Retrain ML</code> — feedback loop.</div>
             </div>
           </>}
         </div>

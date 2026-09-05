@@ -1,0 +1,6502 @@
+[
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:12+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:28:54+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file12.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:34:24+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file32.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:22:30+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-1/file57.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:47:45+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:35:35+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file53.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:46+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:57:38+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:26:38+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-2/file74.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:28:56+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T04:06:13+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:02:03+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file38.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:22:36+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:20:11+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:21:38+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-5/file77.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:58:26+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:04:42+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.15",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:23:58+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:09:15+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file53.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:59:57+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:22:40+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:48:31+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:33:14+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:57:43+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:51:35+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-2/file79.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:12:16+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:50:21+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:32:49+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file95.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:15:03+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:03:50+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:49:59+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-5/file1.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:06:31+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file10.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:21:07+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:04:48+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-5/file99.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:32:23+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:34+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:35:38+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:16:43+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:28:15+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:29:04+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-2/file34.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:30:33+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-4/file99.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:15:19+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:02:41+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:36:30+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-2/file61.txt",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:55:24+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:06:03+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:40:11+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:37:03+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T21:39:20+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-1/file93.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:34:13+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:44:04+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:37:46+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:23:37+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:46:57+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:19:58+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:32:36+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-2/file92.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:29:00+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:38:02+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file95.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:26:22+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file93.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:15:35+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:19:50+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-1/file77.txt",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:42:06+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-2/file43.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:46:55+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:12+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:35:44+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file18.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:17:51+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-1/file98.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:32:18+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:06:22+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:11:57+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-4/file12.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:07:15+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:14:20+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:36:14+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file72.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:31:29+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file94.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:29:36+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T08:28:31+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:01:22+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-1/file45.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:01:59+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:54:51+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.18",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:28+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:34:53+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:36:07+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:36:24+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:41:04+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file90.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T04:10:23+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:26:45+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:26+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:04+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:55:14+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:32:37+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:47:47+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T05:38:47+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:20+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:39:34+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-1/file65.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:36:47+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:42:55+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:31:29+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file98.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:37:35+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T07:37:01+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:53:19+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file44.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:55:49+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:50:50+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:18:30+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:59:18+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:56:16+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file98.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:02:42+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:08+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:38:16+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-1/file94.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:18:57+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:55:06+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T21:17:01+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:54:43+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:37:37+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file20.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:22:27+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:36:15+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file50.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:10:55+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:00+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:05:07+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-2/file45.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:44+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:29:32+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:41:44+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-4/file17.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:30+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:02:08+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file61.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:08:15+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:44:18+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:40:34+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:00:06+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:26:11+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-1/file68.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:37:36+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:16:45+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:32:35+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-1/file50.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:23:04+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:42:37+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file61.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:49:41+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file48.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:58:51+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:40:16+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:36+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T06:35:46+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-5/file68.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:22:37+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:10+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:28:37+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:36+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:09:24+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file95.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:04:49+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-3/file45.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:38:40+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-1/file14.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:40:52+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:25:15+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:09:45+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-2/file9.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:49:35+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:20:13+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-4/file42.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:17:31+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-2/file9.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:06:20+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:42:40+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:24:29+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-3/file86.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:58:36+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:07:51+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file56.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:57:04+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:45:40+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T04:38:34+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:53:25+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:40:38+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:09:53+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:50:35+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file20.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:18+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:48:16+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file42.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:01:25+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:46:15+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:19:30+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:49:51+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:14:01+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.17",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:33:41+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:53:31+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:52:46+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:13:32+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:33:11+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:22:14+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:58:46+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file41.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:29:03+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-5/file32.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:20:53+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:11:08+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:06:43+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-2/file1.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:08:54+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:16+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:47:33+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-2/file49.txt",
+      "source_ip": "10.0.1.15",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:18:14+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-1/file56.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:03:23+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:42:33+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:12:20+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-1/file96.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:42+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:02:25+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:10:52+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:34:24+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:32:58+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-3/file22.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:51:58+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-2/file14.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:48:21+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T00:44:38+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-4/file38.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:16:49+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:54:49+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-1/file59.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:46:26+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:33:58+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:04:33+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:09:04+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file34.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:05:17+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file32.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:29:13+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:16:23+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:08:24+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:24:30+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:08+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:33:40+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:07:18+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:55:21+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:09:03+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:12:36+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file20.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:55:30+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:02:59+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:49:29+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:18:14+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:14+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:11:17+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-4/file32.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:04:28+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:09:28+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:56:26+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:29:39+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.15",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:58:56+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file83.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:30+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:42+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T04:05:32+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:08:24+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:58:03+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T19:38:43+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-1/file32.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:15:26+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file59.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:12:11+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:53:58+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-1/file60.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:50:09+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:44+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:55:32+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-1/file85.txt",
+      "source_ip": "10.0.1.18",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:23:22+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file86.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:06+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:16:47+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:36:55+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:56:38+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file72.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:40:32+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:16:48+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:42:18+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T19:46:50+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:40:01+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file81.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:57:01+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:21:50+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:53:49+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file90.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:23:43+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:19:54+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-2/file60.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:22:33+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file11.txt",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:16:42+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:38:50+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-3/file50.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:38:02+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:48:45+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:36:01+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:03:53+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-1/file67.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:05:10+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:35:30+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:06:28+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:08:59+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-3/file9.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:34:21+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:40:15+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:55:06+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:34:24+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:53:15+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-4/file71.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:28+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:21:08+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:30:55+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:35:09+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:53:51+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file31.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:04:23+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:41:21+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:32:29+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:14:25+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-5/file8.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:11:55+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file73.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:07:50+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file6.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:01:29+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:10+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:02:27+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T20:24:36+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-1/file78.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T06:20:59+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file66.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:49:22+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:33:43+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:56:16+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:41:12+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:15:16+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file17.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:14:29+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:09:19+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:52:13+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:29:09+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file18.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:10:46+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:31:35+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:52:42+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:20:49+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:45:19+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file84.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:49:31+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-2/file29.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T06:38:01+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:06:47+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-3/file17.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:45:37+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file12.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:21:20+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:18+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:50:21+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file47.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:15:17+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file39.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:37:25+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file11.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:45:19+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:00:07+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:36:41+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:19:12+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:31:55+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:57:35+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file74.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:25:32+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:20:59+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:29:37+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file95.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:41:17+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:21:22+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:32:09+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:14:04+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:14:00+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-1/file91.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:22+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:14:34+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:48:17+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file39.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:58:08+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file69.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:38:24+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-2/file21.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:31:05+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:28:02+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:32:43+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:36:38+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-1/file43.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:51:11+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:58:54+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-1/file12.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:52:39+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:10:03+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:53:26+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file96.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:39:40+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-5/file62.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:16:53+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.18",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:47:26+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file15.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:50:25+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:07:01+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file83.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:32:45+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:44:36+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-2/file58.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:24:49+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:47:32+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:16:35+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-1/file88.txt",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:42+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:53:08+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file58.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:31:01+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:39:47+00:00",
+      "user": "carol",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:22:41+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:18:02+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:27:05+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file78.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:06:20+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:48:39+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:12:23+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file37.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:43:37+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file11.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:35:32+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:24+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:41:11+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-1/file32.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:38:30+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:18:16+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file20.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:10:52+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:24:34+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-2/file65.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:33:55+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file55.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:02+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:42:55+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-2/file35.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:51:15+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T08:37:35+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file49.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:13:55+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-4/file8.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:16:52+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:02:29+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.19",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:17:46+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:04:17+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-4/file44.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:35:18+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:59:01+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-4/file7.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:36:13+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-1/file98.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:50:19+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:51:25+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-2/file24.txt",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:46:30+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:26:44+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:56:08+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-3/file15.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:33:08+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-2/file1.txt",
+      "source_ip": "10.0.1.18",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:05:41+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:43:14+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.15",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:42:33+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file59.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:19:44+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:15:25+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-1/file73.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:44:26+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:34+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:36:40+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:44:58+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:59:59+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:58:30+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:32+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:15:07+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-5/file98.txt",
+      "source_ip": "10.0.1.15",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:39:14+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.17",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:03:15+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T04:13:33+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:04:37+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:43:27+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:00+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:23:20+00:00",
+      "user": "alice",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:51:39+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file89.txt",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:31:20+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file45.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:17:57+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:12:44+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:06:08+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file1.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:37:06+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "CreateAccessKey",
+      "resource": "mallory",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "new_access_key"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:39:36+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-3/file52.txt",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:29:57+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:01:33+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-3/file69.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:25:20+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file95.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:19:50+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:31:38+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T04:54:04+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:58:49+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:48:30+00:00",
+      "user": "bob",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:58:28+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:46:06+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:05:57+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:32+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:15:44+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-2/file39.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:10:33+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-5/file100.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:44:46+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-1/file65.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:46:56+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:34:07+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file48.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:37:56+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:01:09+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file87.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:02:51+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-4/file79.txt",
+      "source_ip": "10.0.1.15",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:34+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:43:36+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file60.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:21:27+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-5/file18.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:13:53+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:43:19+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-2/file26.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:25:32+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T21:00:36+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:49:09+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-5/file1.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:50:55+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:26+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:49:10+00:00",
+      "user": "dave",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:58:21+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-3/file2.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:16+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:20:49+00:00",
+      "user": "dave",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:34:03+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file8.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:13:09+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-4/file29.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:14+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:06+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:14+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:30:14+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:22:22+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:31:24+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:48+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:30:41+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "AssumeRole",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.18",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:32:27+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:14:52+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:27:26+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-4/file94.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:02:19+00:00",
+      "user": "carol",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T23:34:39+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:50:21+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:04:14+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "DeleteObject",
+      "resource": "exfil-bucket/secrets.csv",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "s3_deletion"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:36:13+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-4/file90.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:19:28+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListObjectVersions",
+      "resource": "csm-bucket-3/file98.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:50:15+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:50:37+00:00",
+      "user": "eve",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:28:22+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:50:01+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:38:23+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-4/file90.txt",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:03:25+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-3/file25.txt",
+      "source_ip": "10.0.1.17",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:06:43+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-5/file12.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:11:31+00:00",
+      "user": "dave",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/dave",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:43:25+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetBucketLocation",
+      "resource": "csm-bucket-3/file59.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:44:35+00:00",
+      "user": "bob",
+      "service": "IAM",
+      "action": "GetUser",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:40:43+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:57:25+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:41:09+00:00",
+      "user": "eve",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:04:32+00:00",
+      "user": "alice",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-2/file36.txt",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:13:45+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:32:48+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.17",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T16:48:04+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:53:01+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeVolumes",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.16",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:18:20+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "ListBuckets",
+      "resource": "csm-bucket-4/file23.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:18:31+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "HeadObject",
+      "resource": "csm-bucket-5/file84.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:17:15+00:00",
+      "user": "eve",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-1/file4.txt",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:22+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:38+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:00:48+00:00",
+      "user": "bob",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-secure-bucket/secret",
+      "source_ip": "198.51.100.77",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "off_hours_ip"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T15:23:40+00:00",
+      "user": "alice",
+      "service": "STS",
+      "action": "GetCallerIdentity",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:02:58+00:00",
+      "user": "mallory",
+      "service": "IAM",
+      "action": "PutUserPolicy",
+      "resource": "AdministratorAccess",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "iam_policy_change"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:56:06+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T22:01:28+00:00",
+      "user": "dave",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "csm-bucket-3/file54.txt",
+      "source_ip": "10.0.1.13",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T11:42:30+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:20+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T13:06:50+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "ListRoles",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T10:14:13+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:01:13+00:00",
+      "user": "eve",
+      "service": "IAM",
+      "action": "GetCallerIdentity",
+      "resource": "user/eve",
+      "source_ip": "10.0.1.14",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T17:27:57+00:00",
+      "user": "bob",
+      "service": "EC2",
+      "action": "DescribeSecurityGroups",
+      "resource": "user/bob",
+      "source_ip": "10.0.1.11",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:59:02+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T03:00:12+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "GetObject",
+      "resource": "exfil-bucket/data",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "excessive_api"
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T14:09:43+00:00",
+      "user": "carol",
+      "service": "IAM",
+      "action": "ListUsers",
+      "resource": "user/carol",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T09:54:27+00:00",
+      "user": "alice",
+      "service": "EC2",
+      "action": "DescribeInstances",
+      "resource": "user/alice",
+      "source_ip": "10.0.1.10",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T12:43:49+00:00",
+      "user": "carol",
+      "service": "S3",
+      "action": "ListObjects",
+      "resource": "csm-bucket-5/file4.txt",
+      "source_ip": "10.0.1.12",
+      "status": "success"
+    },
+    "label": 0,
+    "attack_type": null
+  },
+  {
+    "event": {
+      "timestamp": "2026-09-05T02:49:51+00:00",
+      "user": "mallory",
+      "service": "S3",
+      "action": "PutBucketAcl",
+      "resource": "exfil-bucket",
+      "source_ip": "203.0.113.99",
+      "status": "success"
+    },
+    "label": 1,
+    "attack_type": "public_s3"
+  }
+]
