@@ -148,10 +148,6 @@ export default function App(){
           <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules + ML anomaly detection, mapped to MITRE — one calm view.</p>
           <div className="hero-actions reveal reveal-3">
             <button className="btn btn-primary hero-cta" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
-            <button className="btn btn-secondary hero-cta" onClick={handleRetrain} disabled={mlBusy} title="Retrain IsolationForest from current events" style={{fontSize:'0.78rem'}}>
-              {mlBusy ? 'Training-' : mlStatus?.ready ? 'Retrain ML' : 'Train ML'}
-            </button>
-            <span className="hero-meta">No install - Local AWS - 8s poll</span>
           </div>
 
         </div>
