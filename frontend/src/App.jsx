@@ -101,6 +101,10 @@ export default function App(){
               {mlStatus.ready ? '◉ ML ready' : '○ ML training needed'}
             </span>
           )}
+          <span style={{display:'inline-flex', alignItems:'center', gap:6, marginLeft:12, fontSize:11, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--ink-muted)'}}>
+            <span className="live-dot" aria-hidden></span> Live
+            <span style={{fontWeight:400, color:'var(--ink-faint)', textTransform:'none', letterSpacing:0}}>— polling 8s</span>
+          </span>
         </div>
         <div className="nav-right">
           <button className="theme-toggle" aria-label="Toggle theme" onClick={()=>setTheme(t=>t==='light'?'dark':'light')} title={theme==='light'?'Dark mode':'Light mode'}>
@@ -112,6 +116,7 @@ export default function App(){
           </button>
         </div>
       </nav>
+      <div className={`running-bar ${busy ? '' : 'paused'}`} style={{height:2}} aria-hidden />
 
       {/* Hero — Small SVG Texture — No Blur */}
       <section className="hero-blur">
@@ -147,7 +152,7 @@ export default function App(){
           <h1 className="hero-title reveal reveal-1">One platform.<br/>Total visibility.</h1>
           <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules + ML anomaly detection, mapped to MITRE — one calm view.</p>
           <div className="hero-actions reveal reveal-3">
-            <button className="btn btn-primary hero-cta" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
+            <button className={`btn btn-primary hero-cta ${busy?'btn-loading':''}`} onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
           </div>
 
         </div>
@@ -218,14 +223,14 @@ export default function App(){
 
         <div className="grid2">
           <div className="card">
-            <div className="card-head"><h3>Event stream</h3><span>{filteredEvents.length} events</span></div>
+            <div className="card-head"><h3 style={{display:'flex',alignItems:'center',gap:8}}><span className="live-dot" style={{width:6,height:6}}></span> Event stream</h3><span style={{display:'flex',alignItems:'center',gap:6}}><span className="live-ring" style={{width:6,height:6}}></span>{filteredEvents.length} events • live</span></div>
             <div style={{overflow:'auto', maxHeight:520}}>
               <table className="table">
                 <thead><tr><th>Time</th><th>User</th><th>Service</th><th>Action</th><th>Resource</th></tr></thead>
                 <tbody>
                   {filteredEvents.length===0 && <tr><td colSpan={5} className="empty">No events - run demo</td></tr>}
-                  {filteredEvents.map(r=>(
-                    <tr key={r.id}>
+                  {filteredEvents.map((r,i)=>(
+                    <tr key={r.id} className={i<3?'event-row-enter':''} style={{animationDelay: `${i*30}ms`}}>
                       <td className="mono">{fmtTime(r.timestamp)}</td>
                       <td>{r.user}</td>
                       <td><span className="badge badge-paper">{r.service}</span></td>
@@ -239,7 +244,7 @@ export default function App(){
           </div>
 
           <div className="card">
-            <div className="card-head"><h3>Security alerts</h3><span>{filteredAlerts.length} findings</span></div>
+            <div className="card-head"><h3 style={{display:'flex',alignItems:'center',gap:8}}><span className="live-dot" style={{width:6,height:6, background:'#FF64C8'}}></span> Security alerts</h3><span style={{display:'flex',alignItems:'center',gap:6}}>{filteredAlerts.length} findings • live</span></div>
             <div style={{display:'flex',gap:8,padding:'12px 16px',borderBottom:'1px solid var(--hairline)',flexWrap:'wrap'}}>
               <select className="select" style={{minWidth:140,height:32}} value={fSev} onChange={e=>setFSev(e.target.value)}>
                 <option value="">All severity</option><option>CRITICAL</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option>
