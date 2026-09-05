@@ -153,12 +153,7 @@ export default function App(){
             </button>
             <span className="hero-meta">No install - Local AWS - 8s poll</span>
           </div>
-          <div className="score-pill reveal reveal-4">
-            <span style={{width:8,height:8,borderRadius:999,background: score>=80?'#1AAE39':score>=40?'#DD5B00':'#FF64C8',display:'inline-block'}} />
-            <span>Security Score <b>{score}/100</b></span>
-            <span style={{color:'rgba(255,255,255,0.6)'}}>{overview? `${overview.open_alerts} open - ${overview.total_events} events` : '-'}</span>
-            <button onClick={loadAll} style={{marginLeft:6,background:'transparent',border:0,color:'rgba(255,255,255,0.6)',fontSize:12,cursor:'pointer',textDecoration:'underline'}}>Refresh</button>
-          </div>
+
         </div>
       </section>
 
