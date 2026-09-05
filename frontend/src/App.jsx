@@ -27,6 +27,8 @@ export default function App(){
   const [timeline,setTimeline]=useState([])
   const [drawer,setDrawer]=useState(null)
   const [busy,setBusy]=useState(false)
+  const [mlStatus,setMlStatus]=useState(null)
+  const [mlBusy,setMlBusy]=useState(false)
   const [fService,setFService]=useState('')
   const [fUser,setFUser]=useState('')
   const [fAction,setFAction]=useState('')
@@ -35,13 +37,14 @@ export default function App(){
 
   async function loadAll(){
     try{
-      const [o,e,a,t]=await Promise.all([
+      const [o,e,a,t,m]=await Promise.all([
         jget('/api/overview'),
         jget('/api/events?limit=100'),
         jget('/api/alerts'),
         jget('/api/timeline'),
+        jget('/api/ml/status').catch(()=> null),
       ])
-      setOverview(o); setEvents(e); setAlerts(a); setTimeline(t)
+      setOverview(o); setEvents(e); setAlerts(a); setTimeline(t); if(m) setMlStatus(m)
     }catch(e){ console.error(e) }
   }
   useEffect(()=>{ loadAll(); const id=setInterval(loadAll,8000); return ()=>clearInterval(id) },[])
@@ -50,6 +53,15 @@ export default function App(){
     setBusy(true)
     try{ await fetch(API+'/api/simulate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user:'alice'})}) }catch{}
     await loadAll(); setBusy(false)
+  }
+  async function handleRetrain(){
+    setMlBusy(true)
+    try{
+      const r = await fetch(API+'/api/ml/train',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contamination:0.05})})
+      const j = await r.json()
+      if(j.status) setMlStatus(j.status)
+    }catch(e){ console.error(e) }
+    await loadAll(); setMlBusy(false)
   }
   async function openDrawer(id){
     const d=await jget('/api/alerts/'+id)
@@ -82,6 +94,11 @@ export default function App(){
         <div className="nav-left">
           <div className="logo"><span className="logo-mark">◈</span> CSM</div>
           <span style={{fontSize:11,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-faint)',marginLeft:12}}>Floci • Cloud Security Monitor</span>
+          {mlStatus && (
+            <span className={`badge ${mlStatus.ready ? 'badge-teal' : 'badge-paper'}`} style={{marginLeft:10, fontSize:10, letterSpacing:'0.06em'}} title={mlStatus.model_path || ''}>
+              {mlStatus.ready ? '◉ ML ready' : '○ ML training needed'}
+            </span>
+          )}
         </div>
         <div className="nav-right">
           <button className="theme-toggle" aria-label="Toggle theme" onClick={()=>setTheme(t=>t==='light'?'dark':'light')} title={theme==='light'?'Dark mode':'Light mode'}>
@@ -126,9 +143,12 @@ export default function App(){
         <div className="hero-blur-content">
           <div className="hero-kicker reveal">Floci - Cloud Security Operations</div>
           <h1 className="hero-title reveal reveal-1">One platform.<br/>Total visibility.</h1>
-          <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules and mapped to MITRE, in one calm view.</p>
+          <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules + ML anomaly detection, mapped to MITRE — one calm view.</p>
           <div className="hero-actions reveal reveal-3">
             <button className="btn btn-primary hero-cta" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
+            <button className="btn btn-secondary hero-cta" onClick={handleRetrain} disabled={mlBusy} title="Retrain IsolationForest from current events" style={{fontSize:'0.78rem'}}>
+              {mlBusy ? 'Training-' : mlStatus?.ready ? 'Retrain ML' : 'Train ML'}
+            </button>
             <span className="hero-meta">No install - Local AWS - 8s poll</span>
           </div>
           <div className="score-pill reveal reveal-4">
@@ -152,7 +172,7 @@ export default function App(){
           <div>
             <div className="eyebrow">Monitoring</div>
             <h2 className="section-title">Monitor every API call.</h2>
-            <p className="section-desc">Floci emits S3 and IAM operations. The collector normalizes them, the detector flags five patterns, and the dashboard turns them into auditable findings.</p>
+            <p className="section-desc">Floci emits S3 and IAM operations. The collector normalizes them, five rules + ML anomaly detection flag threats, and the dashboard turns them into auditable findings.</p>
           </div>
           <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
             <select className="select" value={fService} onChange={e=>setFService(e.target.value)}>
@@ -197,10 +217,13 @@ export default function App(){
             </div>
             <div className="alerts" style={{maxHeight:520,overflow:'auto'}}>
               {filteredAlerts.length===0 && <div className="empty">No alerts - clean bill of health</div>}
-              {filteredAlerts.map(a=>(
-                <div key={a.id} className="alert-card" onClick={()=>openDrawer(a.id)}>
+              {filteredAlerts.map(a=>{
+                const isML = a.title.includes('ML')
+                return (
+                <div key={a.id} className="alert-card" onClick={()=>openDrawer(a.id)} style={isML ? {borderLeft:'3px solid var(--teal)', background:'rgba(42,157,153,0.04)'} : {}}>
                   <div className="alert-top">
                     <span className={`badge ${sevBadge(a.severity)}`}>{a.severity}</span>
+                    {isML && <span className="badge badge-teal" style={{fontSize:10}}>ML</span>}
                     <span style={{fontSize:12,color:'var(--ink-muted)'}}>{fmtTime(a.created_at)} - {a.status}</span>
                     <span style={{marginLeft:'auto',fontSize:12,fontWeight:600}}>{a.risk_score}/100</span>
                   </div>
@@ -208,7 +231,7 @@ export default function App(){
                   <div className="alert-meta"><span>MITRE <b style={{color:'var(--ink)'}}>{a.mitre_technique||'-'}</b></span></div>
                   <div className="alert-desc">{a.description}</div>
                 </div>
-              ))}
+                )})}
             </div>
           </div>
         </div>
