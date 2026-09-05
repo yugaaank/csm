@@ -270,6 +270,22 @@ def metrics():
             return jsonify({"error": str(e)}), 500
     return jsonify({"error": "no metrics yet, run scripts/evaluate.py"})
 
+@app.post("/api/metrics/refresh")
+def metrics_refresh():
+    """Recompute metrics from data/labeled.json using current model, save to ml/metrics.json."""
+    import os, json as _json, sys as _sys, subprocess
+    try:
+        result = subprocess.run(
+            [_sys.executable, "scripts/evaluate.py"],
+            capture_output=True, text=True, timeout=20, cwd=os.path.join(os.path.dirname(__file__), "..")
+        )
+        mp = os.path.join(os.path.dirname(__file__), "..", "ml", "metrics.json")
+        if os.path.exists(mp):
+            return jsonify(_json.load(open(mp)))
+        return jsonify({"ok": result.returncode==0, "stdout": result.stdout, "stderr": result.stderr})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 # ---- frontend ----
 def index():
     return send_from_directory(app.static_folder, "index.html")

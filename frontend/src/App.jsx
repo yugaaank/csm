@@ -169,8 +169,15 @@ export default function App(){
                 <div style={{fontSize:13, color:'var(--ink-muted)', marginTop:4}}>Rules vs ML vs Combined — higher recall = fewer missed attacks</div>
               </div>
               <button className="btn-secondary" style={{height:32, fontSize:12}} onClick={async()=>{
-                const r=await fetch(API+'/api/metrics'); const j=await r.json(); if(!j.error) setMetrics(j);
-                // also trigger evaluate via API if needed: POST to train then evaluate
+                try{
+                  const r=await fetch(API+'/api/metrics/refresh',{method:'POST'});
+                  const j=await r.json();
+                  if(!j.error && (j.rules || j.combined)) setMetrics(j);
+                  else {
+                    // fallback to GET
+                    const r2=await fetch(API+'/api/metrics'); const j2=await r2.json(); if(!j2.error) setMetrics(j2);
+                  }
+                }catch(e){ console.error(e) }
               }}>Refresh metrics</button>
             </div>
             <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:12, marginTop:14}}>
