@@ -7,6 +7,11 @@ from .database import init_db, query, execute, get_conn
 from .event_collector import collect
 from .risk_engine import overall_security_score
 from .config import DB_PATH
+try:
+    from .ml_detector import load as ml_load, get_status as ml_status
+    ml_load()
+except Exception:
+    ml_status = lambda: {"ready": False, "model_exists": False, "model_path": None}  # ponytail: fail-open if ml missing
 
 import os as _os
 _frontend_dist = _os.path.join(_os.path.dirname(__file__), "../frontend/dist")
@@ -100,15 +105,16 @@ def update_alert(aid):
 def api_collect():
     raw = request.get_json(force=True)
     # accept single or list
+    def _clean(alerts):
+        return [{k: v for k, v in a.items() if not k.startswith("_")} for a in alerts]
     if isinstance(raw, list):
         out = []
         for r in raw:
             eid, alerts = collect(r)
-            out.append({"event_id": eid, "alerts": alerts})
+            out.append({"event_id": eid, "alerts": _clean(alerts)})
         return jsonify(out)
     eid, alerts = collect(raw)
-    return jsonify({"event_id": eid, "alerts": alerts})
-
+    return jsonify({"event_id": eid, "alerts": _clean(alerts)})
 @app.post("/api/simulate")
 def simulate():
     """Run demo scenario operations against Floci and collect events."""
@@ -184,6 +190,32 @@ def simulate():
 def timeline():
     rows = query("SELECT timestamp, user, service, action, resource FROM events ORDER BY id DESC LIMIT 50")
     return jsonify(list(reversed(rows)))
+
+@app.get("/api/ml/status")
+def ml_status_route():
+    try:
+        return jsonify(ml_status())
+    except Exception as e:
+        return jsonify({"ready": False, "error": str(e)})
+
+@app.post("/api/ml/train")
+def ml_train():
+    """Retrain model from current DB. Body: {contamination: 0.05}."""
+    try:
+        import subprocess, sys as _sys
+        contam = (request.get_json(silent=True) or {}).get("contamination", 0.05)
+        result = subprocess.run(
+            [_sys.executable, "scripts/train.py", "--contamination", str(contam)],
+            capture_output=True, text=True, timeout=30, cwd=os.path.join(os.path.dirname(__file__), "..")
+        )
+        # reload model
+        try:
+            ml_load()
+        except Exception:
+            pass
+        return jsonify({"ok": result.returncode == 0, "stdout": result.stdout, "stderr": result.stderr, "status": ml_status()})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
 
 # ---- frontend ----
 @app.get("/")
