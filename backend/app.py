@@ -287,6 +287,7 @@ def metrics_refresh():
         return jsonify({"error": str(e)}), 500
 
 # ---- frontend ----
+@app.get("/")
 def index():
     return send_from_directory(app.static_folder, "index.html")
 
