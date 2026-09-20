@@ -27,21 +27,26 @@ export default function App(){
   const [timeline,setTimeline]=useState([])
   const [drawer,setDrawer]=useState(null)
   const [busy,setBusy]=useState(false)
+  const [mlStatus,setMlStatus]=useState(null)
+  const [mlBusy,setMlBusy]=useState(false)
   const [fService,setFService]=useState('')
   const [fUser,setFUser]=useState('')
   const [fAction,setFAction]=useState('')
   const [fSev,setFSev]=useState('')
   const [fStatus,setFStatus]=useState('')
+  const [metrics,setMetrics]=useState(null)
 
   async function loadAll(){
     try{
-      const [o,e,a,t]=await Promise.all([
+      const [o,e,a,t,m,met]=await Promise.all([
         jget('/api/overview'),
         jget('/api/events?limit=100'),
         jget('/api/alerts'),
         jget('/api/timeline'),
+        jget('/api/ml/status').catch(()=> null),
+        jget('/api/metrics').catch(()=> null),
       ])
-      setOverview(o); setEvents(e); setAlerts(a); setTimeline(t)
+      setOverview(o); setEvents(e); setAlerts(a); setTimeline(t); if(m) setMlStatus(m); if(met && !met.error) setMetrics(met)
     }catch(e){ console.error(e) }
   }
   useEffect(()=>{ loadAll(); const id=setInterval(loadAll,8000); return ()=>clearInterval(id) },[])
@@ -50,6 +55,15 @@ export default function App(){
     setBusy(true)
     try{ await fetch(API+'/api/simulate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user:'alice'})}) }catch{}
     await loadAll(); setBusy(false)
+  }
+  async function handleRetrain(){
+    setMlBusy(true)
+    try{
+      const r = await fetch(API+'/api/ml/train',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contamination:0.05})})
+      const j = await r.json()
+      if(j.status) setMlStatus(j.status)
+    }catch(e){ console.error(e) }
+    await loadAll(); setMlBusy(false)
   }
   async function openDrawer(id){
     const d=await jget('/api/alerts/'+id)
@@ -82,6 +96,15 @@ export default function App(){
         <div className="nav-left">
           <div className="logo"><span className="logo-mark">◈</span> CSM</div>
           <span style={{fontSize:11,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-faint)',marginLeft:12}}>Floci • Cloud Security Monitor</span>
+          {mlStatus && (
+            <span className={`badge ${mlStatus.ready ? 'badge-teal' : 'badge-paper'}`} style={{marginLeft:10, fontSize:10, letterSpacing:'0.06em'}} title={mlStatus.model_path || ''}>
+              {mlStatus.ready ? '◉ ML ready' : '○ ML training needed'}
+            </span>
+          )}
+          <span style={{display:'inline-flex', alignItems:'center', gap:6, marginLeft:12, fontSize:11, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--ink-muted)'}}>
+            <span className="live-dot" aria-hidden></span> Live
+            <span style={{fontWeight:400, color:'var(--ink-faint)', textTransform:'none', letterSpacing:0}}>— polling 8s</span>
+          </span>
         </div>
         <div className="nav-right">
           <button className="theme-toggle" aria-label="Toggle theme" onClick={()=>setTheme(t=>t==='light'?'dark':'light')} title={theme==='light'?'Dark mode':'Light mode'}>
@@ -93,6 +116,7 @@ export default function App(){
           </button>
         </div>
       </nav>
+      <div className={`running-bar ${busy ? '' : 'paused'}`} style={{height:2}} aria-hidden />
 
       {/* Hero — Small SVG Texture — No Blur */}
       <section className="hero-blur">
@@ -126,17 +150,11 @@ export default function App(){
         <div className="hero-blur-content">
           <div className="hero-kicker reveal">Floci - Cloud Security Operations</div>
           <h1 className="hero-title reveal reveal-1">One platform.<br/>Total visibility.</h1>
-          <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules and mapped to MITRE, in one calm view.</p>
+          <p className="hero-sub reveal reveal-2">Every S3 and IAM event from Floci, flagged by five rules + ML anomaly detection, mapped to MITRE — one calm view.</p>
           <div className="hero-actions reveal reveal-3">
-            <button className="btn btn-primary hero-cta" onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
-            <span className="hero-meta">No install - Local AWS - 8s poll</span>
+            <button className={`btn btn-primary hero-cta ${busy?'btn-loading':''}`} onClick={runSimulate} disabled={busy}>{busy?'Running-':'Run demo scenario'}</button>
           </div>
-          <div className="score-pill reveal reveal-4">
-            <span style={{width:8,height:8,borderRadius:999,background: score>=80?'#1AAE39':score>=40?'#DD5B00':'#FF64C8',display:'inline-block'}} />
-            <span>Security Score <b>{score}/100</b></span>
-            <span style={{color:'rgba(255,255,255,0.6)'}}>{overview? `${overview.open_alerts} open - ${overview.total_events} events` : '-'}</span>
-            <button onClick={loadAll} style={{marginLeft:6,background:'transparent',border:0,color:'rgba(255,255,255,0.6)',fontSize:12,cursor:'pointer',textDecoration:'underline'}}>Refresh</button>
-          </div>
+
         </div>
       </section>
 
@@ -148,11 +166,51 @@ export default function App(){
           <div className="stat-card"><div className="stat-label">Medium</div><div className="stat-value">{by.MEDIUM ?? 0}</div><div className="stat-sub">Monitor</div></div>
         </div>
 
+        {metrics && (
+          <div className="card" style={{maxWidth:1280, margin:'0 auto 20px', padding:'16px 20px'}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12}}>
+              <div>
+                <div className="eyebrow">Model Evaluation — labeled 500 (400 benign / 100 attack)</div>
+                <div style={{fontSize:13, color:'var(--ink-muted)', marginTop:4}}>Rules vs ML vs Combined — higher recall = fewer missed attacks</div>
+              </div>
+              <button className="btn-secondary" style={{height:32, fontSize:12}} onClick={async()=>{
+                try{
+                  const r=await fetch(API+'/api/metrics/refresh',{method:'POST'});
+                  const j=await r.json();
+                  if(!j.error && (j.rules || j.combined)) setMetrics(j);
+                  else {
+                    // fallback to GET
+                    const r2=await fetch(API+'/api/metrics'); const j2=await r2.json(); if(!j2.error) setMetrics(j2);
+                  }
+                }catch(e){ console.error(e) }
+              }}>Refresh metrics</button>
+            </div>
+            <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:12, marginTop:14}}>
+              {['rules','ml','combined'].map(k=>{
+                const m=metrics[k];
+                if(!m) return null;
+                const isBest = k==='combined';
+                return (
+                  <div key={k} style={{border:`1px solid ${isBest?'var(--teal)':'var(--hairline)'}`, borderRadius:8, padding:12, background: isBest?'rgba(42,157,153,0.06)':'var(--surface)'}}>
+                    <div style={{fontSize:11, fontWeight:700, letterSpacing:'0.08em', textTransform:'uppercase', color: isBest?'var(--teal)':'var(--ink-faint)'}}>{k} {isBest&&'★'}</div>
+                    <div style={{marginTop:6, fontSize:13, display:'grid', gap:2}}>
+                      <div>Precision <b>{(m.precision*100).toFixed(0)}%</b> <span style={{color:'var(--ink-faint)'}}>• Recall <b>{(m.recall*100).toFixed(0)}%</b></span></div>
+                      <div>F1 <b>{(m.f1*100).toFixed(0)}%</b> <span style={{color:'var(--ink-faint)'}}>• Acc {(m.accuracy*100).toFixed(0)}%</span></div>
+                      <div style={{fontSize:11, color:'var(--ink-muted)'}}>TP {m.tp} FP {m.fp} FN {m.fn} TN {m.tn}</div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <div style={{marginTop:10, fontSize:11, color:'var(--ink-faint)'}}>Run <code>uv run python scripts/evaluate.py</code> to recompute from <code>data/labeled.json</code> → <code>ml/metrics.json</code>.</div>
+          </div>
+        )}
+
         <div className="section-head">
           <div>
             <div className="eyebrow">Monitoring</div>
             <h2 className="section-title">Monitor every API call.</h2>
-            <p className="section-desc">Floci emits S3 and IAM operations. The collector normalizes them, the detector flags five patterns, and the dashboard turns them into auditable findings.</p>
+            <p className="section-desc">Floci emits S3 and IAM operations. The collector normalizes them, five rules + ML anomaly detection flag threats, and the dashboard turns them into auditable findings.</p>
           </div>
           <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
             <select className="select" value={fService} onChange={e=>setFService(e.target.value)}>
@@ -165,14 +223,14 @@ export default function App(){
 
         <div className="grid2">
           <div className="card">
-            <div className="card-head"><h3>Event stream</h3><span>{filteredEvents.length} events</span></div>
+            <div className="card-head"><h3 style={{display:'flex',alignItems:'center',gap:8}}><span className="live-dot" style={{width:6,height:6}}></span> Event stream</h3><span style={{display:'flex',alignItems:'center',gap:6}}><span className="live-ring" style={{width:6,height:6}}></span>{filteredEvents.length} events • live</span></div>
             <div style={{overflow:'auto', maxHeight:520}}>
               <table className="table">
                 <thead><tr><th>Time</th><th>User</th><th>Service</th><th>Action</th><th>Resource</th></tr></thead>
                 <tbody>
                   {filteredEvents.length===0 && <tr><td colSpan={5} className="empty">No events - run demo</td></tr>}
-                  {filteredEvents.map(r=>(
-                    <tr key={r.id}>
+                  {filteredEvents.map((r,i)=>(
+                    <tr key={r.id} className={i<3?'event-row-enter':''} style={{animationDelay: `${i*30}ms`}}>
                       <td className="mono">{fmtTime(r.timestamp)}</td>
                       <td>{r.user}</td>
                       <td><span className="badge badge-paper">{r.service}</span></td>
@@ -186,7 +244,7 @@ export default function App(){
           </div>
 
           <div className="card">
-            <div className="card-head"><h3>Security alerts</h3><span>{filteredAlerts.length} findings</span></div>
+            <div className="card-head"><h3 style={{display:'flex',alignItems:'center',gap:8}}><span className="live-dot" style={{width:6,height:6, background:'#FF64C8'}}></span> Security alerts</h3><span style={{display:'flex',alignItems:'center',gap:6}}>{filteredAlerts.length} findings • live</span></div>
             <div style={{display:'flex',gap:8,padding:'12px 16px',borderBottom:'1px solid var(--hairline)',flexWrap:'wrap'}}>
               <select className="select" style={{minWidth:140,height:32}} value={fSev} onChange={e=>setFSev(e.target.value)}>
                 <option value="">All severity</option><option>CRITICAL</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option>
@@ -197,10 +255,13 @@ export default function App(){
             </div>
             <div className="alerts" style={{maxHeight:520,overflow:'auto'}}>
               {filteredAlerts.length===0 && <div className="empty">No alerts - clean bill of health</div>}
-              {filteredAlerts.map(a=>(
-                <div key={a.id} className="alert-card" onClick={()=>openDrawer(a.id)}>
+              {filteredAlerts.map(a=>{
+                const isML = a.title.includes('ML')
+                return (
+                <div key={a.id} className="alert-card" onClick={()=>openDrawer(a.id)} style={isML ? {borderLeft:'3px solid var(--teal)', background:'rgba(42,157,153,0.04)'} : {}}>
                   <div className="alert-top">
                     <span className={`badge ${sevBadge(a.severity)}`}>{a.severity}</span>
+                    {isML && <span className="badge badge-teal" style={{fontSize:10}}>ML</span>}
                     <span style={{fontSize:12,color:'var(--ink-muted)'}}>{fmtTime(a.created_at)} - {a.status}</span>
                     <span style={{marginLeft:'auto',fontSize:12,fontWeight:600}}>{a.risk_score}/100</span>
                   </div>
@@ -208,7 +269,7 @@ export default function App(){
                   <div className="alert-meta"><span>MITRE <b style={{color:'var(--ink)'}}>{a.mitre_technique||'-'}</b></span></div>
                   <div className="alert-desc">{a.description}</div>
                 </div>
-              ))}
+                )})}
             </div>
           </div>
         </div>
@@ -266,7 +327,13 @@ export default function App(){
                 <button className="btn btn-primary" onClick={()=>setStatus(drawer.id,'RESOLVED')}>Mark Resolved</button>
                 <button className="btn-secondary" onClick={()=>setStatus(drawer.id,'REVIEWED')}>Reviewed</button>
                 <button className="btn-secondary" onClick={()=>setStatus(drawer.id,'OPEN')}>Reopen</button>
+                <button className="btn-secondary" onClick={async()=>{
+                  await fetch(API+'/api/alerts/'+drawer.id+'/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({is_false_positive:true, reason:'marked via UI'})});
+                  setDrawer({...drawer, status:'RESOLVED'});
+                  loadAll();
+                }} title="Exclude this event from next ML training" style={{borderColor:'var(--teal)', color:'var(--teal)'}}>False Positive</button>
               </div>
+              <div style={{marginTop:10, fontSize:11, color:'var(--ink-faint)'}}>False Positive excludes this event from next <code>Retrain ML</code> — feedback loop.</div>
             </div>
           </>}
         </div>

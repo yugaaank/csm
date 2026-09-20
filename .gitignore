@@ -6,7 +6,8 @@ __pycache__/
 *.sqlite
 *.sqlite3
 csm.db
-.env
+ml/model.pkl
+ml/*.pkl
 .env.*
 .DS_Store
 .idea/

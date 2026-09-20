@@ -206,3 +206,18 @@ button{font-family:inherit}
 .reveal-4{animation-delay:0.28s}
 @keyframes enter{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 @media(prefers-reduced-motion:reduce){.reveal{animation:none}}
+
+/* Live running animations */
+@keyframes pulse-live{0%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.6}100%{transform:scale(1);opacity:1}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.35}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.live-dot{width:8px;height:8px;background:#1AAE39;border-radius:999px;display:inline-block;position:relative}
+.live-dot::after{content:'';position:absolute;inset:0;border-radius:999px;background:#1AAE39;animation:pulse-live 1.6s ease-in-out infinite}
+.live-ring{width:8px;height:8px;border:1.5px solid #1AAE39;border-radius:999px;display:inline-block;animation:pulse-live 1.6s ease-in-out infinite}
+.running-bar{height:2px;background:linear-gradient(90deg, transparent, var(--primary), transparent);background-size:200% 100%;animation:shimmer 1.4s linear infinite;opacity:0.7}
+.running-bar.paused{animation:none;opacity:0}
+.btn-loading{position:relative;pointer-events:none;opacity:0.85}
+.btn-loading::after{content:'';position:absolute;top:50%;right:14px;width:14px;height:14px;margin-top:-7px;border:2px solid currentColor;border-top-color:transparent;border-radius:999px;animation:spin 0.7s linear infinite}
+.event-row-enter{animation:enter 0.4s ease both}
+.alert-pulse{animation:blink 1.2s ease-in-out 3}

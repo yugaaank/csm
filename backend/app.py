@@ -7,6 +7,11 @@ from .database import init_db, query, execute, get_conn
 from .event_collector import collect
 from .risk_engine import overall_security_score
 from .config import DB_PATH
+try:
+    from .ml_detector import load as ml_load, get_status as ml_status
+    ml_load()
+except Exception:
+    ml_status = lambda: {"ready": False, "model_exists": False, "model_path": None}  # ponytail: fail-open if ml missing
 
 import os as _os
 _frontend_dist = _os.path.join(_os.path.dirname(__file__), "../frontend/dist")
@@ -100,25 +105,44 @@ def update_alert(aid):
 def api_collect():
     raw = request.get_json(force=True)
     # accept single or list
+    def _clean(alerts):
+        return [{k: v for k, v in a.items() if not k.startswith("_")} for a in alerts]
     if isinstance(raw, list):
         out = []
         for r in raw:
             eid, alerts = collect(r)
-            out.append({"event_id": eid, "alerts": alerts})
+            out.append({"event_id": eid, "alerts": _clean(alerts)})
         return jsonify(out)
     eid, alerts = collect(raw)
-    return jsonify({"event_id": eid, "alerts": alerts})
-
+    return jsonify({"event_id": eid, "alerts": _clean(alerts)})
 @app.post("/api/simulate")
 def simulate():
-    """Run demo scenario operations against Floci and collect events."""
+    """Run demo scenario with realistic background noise (80% benign) + attack chain."""
     from .floci_client import s3_client, iam_client
-    import uuid, time
+    import uuid, time, random
+    from datetime import datetime, timezone
+    random.seed()
     s3 = s3_client()
     iam = iam_client()
     results = []
     user = request.get_json(silent=True) or {}
     actor = user.get("user", "demo-user")
+    # -- 0. generate 40-60 benign background events (80% of total) across 5 users/services --
+    benign_users = ["alice","bob","carol","dave","eve"]
+    benign_ips = {"alice":"10.0.1.10","bob":"10.0.1.11","carol":"10.0.1.12","dave":"10.0.1.13","eve":"10.0.1.14"}
+    benign_actions = [("S3","ListBuckets"),("S3","ListObjects"),("S3","GetObject"),("S3","HeadObject"),
+                      ("IAM","ListUsers"),("IAM","GetUser"),("EC2","DescribeInstances"),("EC2","DescribeSecurityGroups"),
+                      ("STS","GetCallerIdentity"),("S3","GetBucketLocation")]
+    noise_n = 45
+    for _ in range(noise_n):
+        u = random.choice(benign_users)
+        svc, act = random.choice(benign_actions)
+        # business hours 9-17
+        hour = random.randint(9,17)
+        ts = datetime(2026,9,5,hour,random.randint(0,59),random.randint(0,59), tzinfo=timezone.utc).isoformat()
+        ip = benign_ips[u] if random.random()<0.92 else "203.0.113."+str(random.randint(10,99))
+        collect({"user":u,"service":svc,"action":act,"resource":f"csm-bucket-{random.randint(1,5)}/file{random.randint(1,100)}.txt" if svc=="S3" else f"user/{u}","source_ip":ip,"timestamp":ts,"status":"success"})
+    results.append(f"Background noise: {noise_n} benign Describe/List/Get across 5 users/S3,IAM,EC2,STS")
     bucket = f"csm-demo-{uuid.uuid4().hex[:6]}"
     # 1 create bucket
     try:
@@ -174,16 +198,93 @@ def simulate():
         results.append(f"DeleteObject -> event {eid}")
     except Exception as e:
         results.append(f"DeleteObject failed: {e}")
-    # 8 excessive API (rule 5) – burst 25 GetObject
+    # 8 excessive API (rule 5 + ML) – burst 25 GetObject off-hours + new IP to trigger ML reliably
     for i in range(25):
-        eid, _ = collect({"user": actor, "service": "S3", "action": "GetObject", "resource": f"{bucket}/hello.txt"})
-    results.append("Burst 25 GetObject -> excessive check")
+        eid, _ = collect({"user": actor, "service": "S3", "action": "GetObject", "resource": f"{bucket}/hello.txt", "source_ip": "203.0.113.99", "timestamp": datetime(2026,9,5,3,0,i*2, tzinfo=timezone.utc).isoformat()})
+    results.append("Burst 25 GetObject (03:00, new IP) -> excessive + ML anomaly")
     return jsonify({"results": results})
 
 @app.get("/api/timeline")
 def timeline():
     rows = query("SELECT timestamp, user, service, action, resource FROM events ORDER BY id DESC LIMIT 50")
     return jsonify(list(reversed(rows)))
+
+@app.get("/api/ml/status")
+def ml_status_route():
+    try:
+        return jsonify(ml_status())
+    except Exception as e:
+        return jsonify({"ready": False, "error": str(e)})
+
+@app.post("/api/ml/train")
+def ml_train():
+    """Retrain model from current DB. Body: {contamination: 0.05}."""
+    try:
+        import subprocess, sys as _sys
+        contam = (request.get_json(silent=True) or {}).get("contamination", 0.05)
+        result = subprocess.run(
+            [_sys.executable, "scripts/train.py", "--contamination", str(contam)],
+            capture_output=True, text=True, timeout=30, cwd=os.path.join(os.path.dirname(__file__), "..")
+        )
+        # reload model
+        try:
+            ml_load()
+        except Exception:
+            pass
+        return jsonify({"ok": result.returncode == 0, "stdout": result.stdout, "stderr": result.stderr, "status": ml_status()})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
+
+@app.post("/api/alerts/<int:aid>/feedback")
+def alert_feedback(aid):
+    """Mark alert as false positive. Body: {is_false_positive: true, reason: str}. Excluded from next training."""
+    data = request.get_json(force=True)
+    is_fp = 1 if data.get("is_false_positive") else 0
+    reason = data.get("reason", "")
+    # get event_id for this alert
+    rows = query("SELECT event_id FROM alerts WHERE id=?", (aid,))
+    if not rows:
+        return jsonify({"error":"alert not found"}), 404
+    event_id = rows[0]["event_id"]
+    execute("INSERT INTO feedback (alert_id, event_id, is_false_positive, reason, created_at) VALUES (?,?,?,?,?)",
+            (aid, event_id, is_fp, reason, datetime.now(timezone.utc).isoformat()))
+    # optionally auto-resolve if marked FP
+    if is_fp:
+        execute("UPDATE alerts SET status='RESOLVED' WHERE id=?", (aid,))
+    return jsonify({"ok": True, "alert_id": aid, "event_id": event_id, "is_false_positive": bool(is_fp)})
+
+@app.get("/api/feedback")
+def list_feedback():
+    rows = query("SELECT f.*, a.title FROM feedback f LEFT JOIN alerts a ON f.alert_id=a.id ORDER BY f.id DESC LIMIT 50")
+    return jsonify(rows)
+
+@app.get("/api/metrics")
+def metrics():
+    """Return last evaluate metrics if exists, else compute quick from labeled."""
+    import os, json as _json
+    mp = os.path.join(os.path.dirname(__file__), "..", "ml", "metrics.json")
+    if os.path.exists(mp):
+        try:
+            return jsonify(_json.load(open(mp)))
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    return jsonify({"error": "no metrics yet, run scripts/evaluate.py"})
+
+@app.post("/api/metrics/refresh")
+def metrics_refresh():
+    """Recompute metrics from data/labeled.json using current model, save to ml/metrics.json."""
+    import os, json as _json, sys as _sys, subprocess
+    try:
+        result = subprocess.run(
+            [_sys.executable, "scripts/evaluate.py"],
+            capture_output=True, text=True, timeout=20, cwd=os.path.join(os.path.dirname(__file__), "..")
+        )
+        mp = os.path.join(os.path.dirname(__file__), "..", "ml", "metrics.json")
+        if os.path.exists(mp):
+            return jsonify(_json.load(open(mp)))
+        return jsonify({"ok": result.returncode==0, "stdout": result.stdout, "stderr": result.stderr})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # ---- frontend ----
 @app.get("/")
